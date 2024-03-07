@@ -73,7 +73,7 @@ html{
     line-height: 38.5px;
 }
 
-#header .ti-search{
+#header .ti-shopping-cart-full{
     float: right;
     color: white;
     font-size: 20px;
@@ -82,7 +82,7 @@ html{
     cursor: pointer;
 }
 
-#header .ti-search:hover{
+#header .ti-shopping-cart-full:hover{
     background: #f44336;
 }
 #slider{
@@ -252,6 +252,11 @@ html{
     text-align: center;
     font-size: 16px;
     cursor: pointer;
+}
+
+.place-buy:active{
+    background-color: #f44336;
+    border: none;
 }
 
 .contact-section{
