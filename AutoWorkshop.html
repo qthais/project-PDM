@@ -169,22 +169,24 @@
                     <p class="icon-heading">Information</p>
                 </div>
             </header>
-            <div class="modal-body">
-                <label for="quantity" class="modal-label">
-                    <i class="ti-shopping-cart"></i>
-                    Quantity
-                </label>
-                <input id="quantity" type="text" class="modal-input" placeholder="How many?">
-
-                <label for="address" class="modal-label">
-                    <i class="ti-user"></i>
-                    Address
-                </label>
-                <input id="address" type="text" class="modal-input" placeholder="Enter address">
-                <button id="buy-tickets">
-                    Confirm <i class="ti-check"></i>
-                </button>
-            </div>
+            <form action="">
+                <div class="modal-body">
+                    <label for="quantity" class="modal-label">
+                        <i class="ti-shopping-cart"></i>
+                        Quantity
+                    </label>
+                    <input id="quantity" required type="text" class="modal-input" placeholder="How many?">
+    
+                    <label for="address" class="modal-label">
+                        <i class="ti-user"></i>
+                        Address
+                    </label>
+                    <input id="address" required type="text" class="modal-input" placeholder="Enter address">
+                    <button id="buy-tickets" type="submit">
+                        Confirm <i class="ti-check"></i>
+                    </button>
+                </div>
+            </form>
             <footer class="modal-footer">
                 <p class="modal-help">Need <a href="">help?</a></p>
             </footer>

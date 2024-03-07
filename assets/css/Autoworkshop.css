@@ -252,11 +252,13 @@ html{
     text-align: center;
     font-size: 16px;
     cursor: pointer;
+    transition: font-size 0.3s ease;
 }
 
 .place-buy:active{
     background-color: #f44336;
     border: none;
+    font-size: 20px;
 }
 
 .contact-section{
