@@ -40,7 +40,10 @@
                     </ul>
                 </li>
             </ul>
-            <div class="ti-shopping-cart-full"></div>
+            <div class="cart_login">
+                <div class="login-button">Login</div>
+                <div class="ti-shopping-cart-full"></div>
+            </div>
         </div>
 
         <div id="slider">
@@ -142,7 +145,8 @@
                         <div class="contact-send">
                             <div class="contact-sender">
                                 <input required name="" placeholder="Name" class="name-input input-member" type="text">
-                                <input required name="" placeholder="Email" type="email" class="email-input input-member">
+                                <input required name="" placeholder="Email" type="email"
+                                    class="email-input input-member">
                             </div>
                             <div class="contact-message ">
                                 <input required name="" class="input-member" type="text" placeholder="Message">
@@ -158,6 +162,8 @@
 
         </div>
     </div>
+
+
     <div class="modal js-modal">
         <div class="modal-container js-modal-container">
             <div class="modal-close js-modal-close">
@@ -176,7 +182,7 @@
                         Quantity
                     </label>
                     <input id="quantity" required type="text" class="modal-input" placeholder="How many?">
-    
+
                     <label for="address" class="modal-label">
                         <i class="ti-user"></i>
                         Address
@@ -192,12 +198,62 @@
             </footer>
         </div>
     </div>
-
+    <div class="login-modal">
+        <div class="container" id="container">
+            <div class="form-container sign-up">
+                <form>
+                    <h1>Create Account</h1>
+                    <div class="social-icons">
+                        <a href="#" class="icon"><i class="fa-brands ti-google"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands ti-facebook"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands ti-github"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands ti-linkedin"></i></a>
+                    </div>
+                    <span>or use your email for registeration</span>
+                    <input required type="text" placeholder="Name">
+                    <input required ="email" placeholder="Email">
+                    <input required type="password" placeholder="Password">
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <form>
+                    <h1>Sign In</h1>
+                    <div class="social-icons">
+                        <a href="#" class="icon"><i class="fa-brands ti-google"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands ti-facebook"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands ti-github"></i></a>
+                        <a href="#" class="icon"><i class="fa-brands ti-linkedin"></i></a>
+                    </div>
+                    <span>or use your email password</span>
+                    <input required ="email" placeholder="Email">
+                    <input required type="password" placeholder="Password">
+                    <a href="#">Forget Your Password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Enter your personal details to use all of site features</p>
+                        <button class="hidden" id="login">Sign In</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Register with your personal details to use all of site features</p>
+                        <button class="hidden" id="register">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         const buyBtns = document.querySelectorAll('.js-buy-tickets')
         const modal = document.querySelector('.js-modal')
         const modalContainer = document.querySelector('.js-modal-container')
         const modalClose = document.querySelector('.js-modal-close')
+
         function showBuyTickets() {
             modal.classList.add('open')
         }
@@ -212,6 +268,20 @@
         modalContainer.addEventListener('click', function (event) {
             event.stopPropagation()
         })
+
+        const loginHeader = document.querySelector('.login-button')
+        const loginModal=document.querySelector('.login-modal')
+        const loginContainer=document.querySelector('.login-modal .container')
+        loginHeader.addEventListener('click', function () {
+            loginModal.classList.add('open')
+        })
+        loginModal.addEventListener('click',function(){
+            loginModal.classList.remove('open')
+        })
+        loginContainer.addEventListener('click', function (event) {
+            event.stopPropagation()
+        })
+
         var sliderHref = document.querySelector('#slider')
         var sliderText = [
             { heading: 'So Convenient!', description: 'Convenient doorstep service - We come to you for all your needs.' },
@@ -229,6 +299,17 @@
                 i = 0
             }
         }, 2500)
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
+        });
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
     </script>
 </body>
 
