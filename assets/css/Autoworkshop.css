@@ -659,6 +659,55 @@ html{
     display: flex;
 }
 
+.footer {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #f2f2f2;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icons a{
+    text-decoration: none;
+    padding: 10px;
+    background-color: black;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.icons a i{
+    font-size: 2em;
+    color: white;
+    opacity: 0.9;
+}
+
+.icons a:hover{
+    background-color: white;
+    transition: 0.5s;
+}
+
+.icons a:hover i{
+    color: black;
+    transition: 0.5s;
+}
+
+.footerBottom {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
 
 @keyframes modalFadein{
     from{
