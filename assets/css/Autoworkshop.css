@@ -380,7 +380,7 @@ html{
     max-width: calc(100%-32px);
     position: relative;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: modalFadein ease 0.5s;
+    animation: modalFadein ease 0.6s;
 }
 .icon-heading{
     display: inline-block;
@@ -471,6 +471,7 @@ html{
     width: 768px;
     max-width: 100%;
     min-height: 480px;
+    animation: modalFadein ease 0.6s;
 }
 
 .container p{
@@ -710,12 +711,16 @@ footer {
 }
 
 @keyframes modalFadein{
-    from{
+    0%{
         transform: translateY(-150px);
         opacity: 0;
     }
 
-    to{
+    50%{
+        transform: translateY(40px);
+    }
+
+    100%{
         transform: translateY(0);
         opacity: 1;
     }
