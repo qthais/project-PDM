@@ -20,7 +20,7 @@ html{
     color:white !important;
 }
 #header{
-    height: 46px;
+    height: 52px;
     background-color:  black;
     position: fixed;
     width: 100%;
@@ -46,7 +46,7 @@ html{
 #nav li a{
     text-decoration: none;
     padding: 0 24px;
-    line-height: 46px;
+    line-height: 52px;
     display: block;
 }
 #nav .subnav{
@@ -95,14 +95,14 @@ html{
     padding: 0 12px 0 6px;
     cursor: pointer;
     height: 100%;
-    line-height: 46px;
+    line-height: 52px;
 }
 
 .cart_login .ti-user{
     color: white;
     cursor: pointer;
     height: 100%;
-    line-height: 46px;
+    line-height: 52px;
     padding-left: 8px;
 }
 
@@ -127,7 +127,7 @@ html{
 #header .ti-shopping-cart-full{
     color: white;
     font-size: 20px;
-    line-height: 46px;
+    line-height: 52px;
     padding: 0 24px;
     cursor: pointer;
 }
@@ -138,7 +138,7 @@ html{
 
 #slider{
     position: relative;
-    margin-top:46px;
+    margin-top:52px;
     padding-top: 50%;
     background:  no-repeat top center / cover ;
     background-image: url('./img/slider_1/Doorstep_service.jpg');
