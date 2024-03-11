@@ -1,3 +1,4 @@
+//Service part
 const buyBtns = document.querySelectorAll('.js-buy-tickets')
 const modal = document.querySelector('.js-modal')
 const modalContainer = document.querySelector('.js-modal-container')
@@ -17,8 +18,8 @@ modal.addEventListener('click', hidenBuyTickets)
 modalContainer.addEventListener('click', function (event) {
     event.stopPropagation()
 })
-
-const loginHeader = document.querySelector('.login-button')
+//Login part
+const loginHeader = document.querySelector('.login-section')
 const loginModal=document.querySelector('.login-modal')
 const loginContainer=document.querySelector('.login-modal .container')
 loginHeader.addEventListener('click', function () {
@@ -31,6 +32,7 @@ loginContainer.addEventListener('click', function (event) {
     event.stopPropagation()
 })
 
+//Slider part
 var sliderHref = document.querySelector('#slider')
 var sliderText = [
     { heading: 'So Convenient!', description: 'Convenient doorstep service - We come to you for all your needs.' },
