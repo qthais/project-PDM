@@ -313,8 +313,12 @@ html{
     font-size: 20px;
 }
 
+.contact-form{
+    background-color: #000;
+}
+
 .contact-section{
-    margin-bottom: 80px;
+    padding: 80px;
 }
 .contact-content{
     height: 120px;
@@ -367,21 +371,75 @@ html{
     padding: 8px 16px;
     float: right;
     margin-right: 20px;
-    background-color: #000;
+    background: linear-gradient(to right, #3b96b6, #7049cb);
     color: white;
     text-transform: uppercase;
     font-size: 16px;
     border: none;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .send-button:hover{
-    background-color: #ccc;
+    background: linear-gradient(to right, #dae2bb, #96e29b);
     color: #000;
 }
-#footer{
 
+/* Service slider */
+.doorstep-services{
 }
+
+/* footer */
+.footer {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #f2f2f2;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.icons a{
+    text-decoration: none;
+    padding: 10px;
+    background-color: black;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.icons a i{
+    font-size: 2em;
+    color: white;
+    opacity: 0.9;
+}
+
+.icons a:hover{
+    background-color: white;
+    transition: 0.5s;
+}
+
+.icons a:hover i{
+    color: black;
+    transition: 0.5s;
+}
+
+.footerBottom {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
 /* buy modal */
 .modal{
     position: fixed;
@@ -523,7 +581,7 @@ html{
 }
 
 .container button{
-    background-color: #512da8;
+    background-color: black;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -637,9 +695,9 @@ html{
 }
 
 .toggle{
-    background-color: #512da8;
+    background-color: black;
     height: 100%;
-    background: linear-gradient(to right, #5c6bc0, #512da8);
+    /* background: linear-gradient(to right, #5c6bc0, #512da8); */
     color: #fff;
     position: relative;
     left: -100%;
@@ -688,56 +746,6 @@ html{
 /* addition class */
 .open{
     display: flex;
-}
-
-.footer {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-footer {
-    background-color: #f2f2f2;
-}
-
-.footerContainer {
-    width: 100%;
-    padding: 70px 30px 20px;
-}
-
-.icons {
-    display: flex;
-    justify-content: center;
-}
-
-.icons a{
-    text-decoration: none;
-    padding: 10px;
-    background-color: black;
-    margin: 10px;
-    border-radius: 50%;
-}
-
-.icons a i{
-    font-size: 2em;
-    color: white;
-    opacity: 0.9;
-}
-
-.icons a:hover{
-    background-color: white;
-    transition: 0.5s;
-}
-
-.icons a:hover i{
-    color: black;
-    transition: 0.5s;
-}
-
-.footerBottom {
-    background-color: #f2f2f2;
-    padding: 20px;
-    text-align: center;
 }
 
 @keyframes modalFadein{
