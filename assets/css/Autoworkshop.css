@@ -150,13 +150,25 @@ html{
     font-size: 28px;
 }
 
-/* #header .cart_login .cart-list{
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid #fff;
     position: absolute;
-    width: 200px;
-    height: 500px;
+    right:28px;
+    top:-8px;
+  }
+
+#header .cart_login .cart-list{
+    position: fixed;
+    width: 500px;
     background-color: #fff;
-    top:52px
-} */
+    top:52px;
+    right:0;
+    border: #2196F3 1px solid;
+}
 
 #slider{
     position: relative;
@@ -280,7 +292,7 @@ html{
     margin: 32px -8px 50px -8px;
 }
 
-.place-item{
+.accessories-item{
     float:left;
     width: 33.33%;
     padding: 0 8px;
@@ -288,34 +300,36 @@ html{
 
 }
 
-.place-img{
+.accessories-img{
     width: 100%;
     display: block;
 }
 
-.place-img:hover{
+.accessories-img:hover{
     opacity: 0.6;
 }
 
-.place-body{
+.accessories-body{
     background-color: white;
     padding: 20px 8px ;
 }
 
-.place-heading{
+.accessories-heading{
 
 }
 
-.play-time{
+.item-price{
     margin: 15px 0;
     opacity: 0.6;
+    text-align: center;
+    display: inline-block;
 }
 
-.place-desc{
+.accessories-desc{
     margin: 15px 0;
 }
 
-.place-buy{
+.accessories-buy{
     display: block;
     width: 108px;
     height: 38.5px;
@@ -329,7 +343,7 @@ html{
     transition: font-size 0.3s ease;
 }
 
-.place-buy:hover{
+.accessories-buy:hover{
     background-color: #f44336;
     border: none;
     font-size: 20px;
