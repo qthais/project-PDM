@@ -153,21 +153,20 @@ html{
 .arrow-up {
     width: 0; 
     height: 0; 
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 15px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f2f2f2;;
     position: absolute;
-    right:28px;
-    top:-8px;
+    right:32px;
+    top:-10px;
   }
 
 #header .cart_login .cart-list{
     position: fixed;
     width: 500px;
-    background-color: #fff;
-    top:52px;
+    background-color: #f2f2f2;
+    top:60px;
     right:0;
-    border: #2196F3 1px solid;
 }
 
 #slider{
@@ -296,8 +295,6 @@ html{
     float:left;
     width: 33.33%;
     padding: 0 8px;
-
-
 }
 
 .accessories-img{
@@ -318,11 +315,21 @@ html{
 
 }
 
+.accessories-item .buy-container{
+    position: relative;
+}
+
 .item-price{
-    margin: 15px 0;
-    opacity: 0.6;
+    display: block;
+    font-weight: bolder;
+    color: rgb(238, 77, 45);
     text-align: center;
-    display: inline-block;
+    position: absolute;
+    left: 80%;
+    bottom: 0;
+    line-height: 38.5px;
+    height: 100%;
+    font-size: 20px;
 }
 
 .accessories-desc{
