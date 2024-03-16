@@ -21,7 +21,7 @@ html{
 }
 #header{
     height: 52px;
-    background-color:  black;
+    background-color:  #000;
     position: fixed;
     width: 100%;
     top:0;
@@ -78,7 +78,7 @@ html{
 #header .cart_login{
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 10px;
     display: flex;
     align-items: center;
 }
@@ -126,15 +126,37 @@ html{
 
 #header .ti-shopping-cart-full{
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 52px;
     padding: 0 24px;
     cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    transform: scaleX(-1);
+}
+
+#header .ti-shopping-cart-full .cart-quantity{
+    position: absolute;
+    font-size: 13px;
+    line-height: normal;
+    left:10%;
+    top: 5%;
+    padding: 2px 7px;
+    background-color: #f44336;
+    border-radius: 50%;
 }
 
 #header .ti-shopping-cart-full:hover{
-    background: #f44336;
+    font-size: 28px;
 }
+
+/* #header .cart_login .cart-list{
+    position: absolute;
+    width: 200px;
+    height: 500px;
+    background-color: #fff;
+    top:52px
+} */
 
 #slider{
     position: relative;
@@ -314,7 +336,7 @@ html{
 }
 
 .contact-form{
-    background-color: #000;
+    background-color: #fff;
 }
 
 .contact-section{
@@ -371,18 +393,18 @@ html{
     padding: 8px 16px;
     float: right;
     margin-right: 20px;
-    background: linear-gradient(to right, #3b96b6, #7049cb);
+    background-color: #000;
     color: white;
     text-transform: uppercase;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 .send-button:hover{
-    background: linear-gradient(to right, #dae2bb, #96e29b);
-    color: #000;
+    background-color: #ccc;
+    color: black;
 }
 
 
@@ -423,7 +445,7 @@ html{
     color: white;
     position: absolute;
     left: 50%;
-    top: 60%;
+    bottom:20%;
     transform: translateX(-50%);
     width: 100%;
     text-align: center;
