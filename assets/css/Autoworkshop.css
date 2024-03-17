@@ -27,12 +27,20 @@ html{
     width: 100%;
     top:0;
     z-index: 1;
-
-
+    display: flex;
 }
 #header #nav{
     display: inline-block;
 }
+
+#header .logo{
+    background-image: url("./img/Logo/Logo.jpg");
+    background-size: contain;
+    height: 100%;
+    margin-left:15px;
+    margin-right: 20px;
+}
+
 #header #nav li{
     display: inline-block;
     position: relative;
@@ -368,20 +376,24 @@ html{
     margin: 0 20px;
 }
 .contact-content{
-    position: relative;
-    width: 70%;
+    width: 75%;
     margin:50px auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 .contact-information{
     display: inline-block;
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 50%;
+    row-gap: 12%;
 }
 
 .contact-send{
     display: inline-block;
-    width: 46%;
+    width: 50%;
     background-color: #fff;
 }
 
@@ -397,7 +409,7 @@ html{
 }
 
 .contact-information .information-container{
-    margin-bottom: 30px;
+
 }
 
 .information-container .information-description{
@@ -421,12 +433,6 @@ html{
     padding: 5px 0;
     outline: none;
     transition: 0.3s;
-}
-
-.input-member:focus~span{
-    color: #e91e63;
-  font-size: 12px;
-  transform: translateY(-20px);
 }
 
 .information-container .contact-icon{
