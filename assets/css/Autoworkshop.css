@@ -59,6 +59,7 @@ html{
     line-height: 52px;
     display: block;
 }
+
 #nav .subnav{
     min-width: 160px;
     background-color: white;
@@ -71,10 +72,12 @@ html{
     width: 100%;
     color: white;
 }
+
 #nav li:hover>a{
     background: #ccc;
     color: #000;
 }
+
 #nav li:hover .subnav{
     display: block;
 }
@@ -96,9 +99,11 @@ html{
 .login-section{
     position: relative;
 }
+
 .login-section div{
     display: inline-block;
 }
+
 .login-button{
     color: white;
     font-size: 20px;
