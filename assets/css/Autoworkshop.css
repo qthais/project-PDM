@@ -180,10 +180,38 @@ html{
 #header .cart_login .cart-list{
     position: fixed;
     width: 500px;
-    background-color: #f2f2f2;
+    background-color: #ccb4b4;
     top:60px;
-    right:0;
+    right:5px;
+    overflow: auto;
 }
+
+.cart-list .cart-item img{
+    width: 100%;
+}
+
+.cart-list .cart-item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.cart-list span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.cart-list .item-quantity span:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+}
+
 
 #slider{
     position: relative;
