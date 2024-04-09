@@ -185,6 +185,13 @@ html{
     right:5px;
     border-radius: 20px;
 }
+.cart-list .cart-list-container{
+    margin: 20px;
+}
+
+.cart-list .cart-list-container .cart-item-container{
+    margin: 20px 0;
+}
 
 .cart-list .cart-item img{
     width: 100%;
@@ -202,24 +209,23 @@ html{
     display: inline-block;
     width: 25px;
     height: 25px;
-    border-radius: 50%;
+    border-radius: 20%;
     background-color: #eee;
     cursor: pointer;
 }
 
 .cart-list .item-quantity span:nth-child(2){
     background-color: transparent;
-    color: #eee;
+
 }
 
 .cart-list h2{
-    margin-left: 20px
+    font-size: 20px;
 }
 
-.cart-list button{
+.cart-list-container button{
     float: right;
     margin-right:20px; 
-    margin-bottom: 30px;
 }
 
 
