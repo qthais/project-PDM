@@ -183,15 +183,23 @@ html{
     background-color: #fff;
     top:60px;
     right:5px;
-    border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(40, 44, 45, 0.536)
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(40, 44, 45, 0.536);
+    display: none;
 }
+
+#header .cart-section:hover .cart-list{
+    display: block;
+}
+
 .cart-list .cart-list-container{
     margin: 20px;
 }
 
 .cart-list .cart-list-container .cart-item-container{
     margin: 20px 0;
+    border-bottom: 1px solid #E1E8EE;
+
 }
 
 .cart-list .cart-item img{
@@ -226,11 +234,33 @@ html{
     box-shadow: inset;
 }
 
-.cart-list-container button{
+.cart-payment{
     float: right;
+}
+
+.payment-information{
+    margin-bottom: 15px;
+}
+
+.payment-information div{
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.payment-information .total-text{
+    font-weight: bold;
+}
+
+.payment-information .total-price{
+    font-weight: bold;
+    float: right;
+    margin-right: 10px;
+}
+.cart-list-container button{
+
     margin-right:5px; 
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 10px 50px;
     background-color: #00bcd4;
     color: #fff;
     border: 1px solid #00bcd4  ;
