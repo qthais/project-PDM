@@ -184,6 +184,7 @@ html{
     top:60px;
     right:5px;
     border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(40, 44, 45, 0.536)
 }
 .cart-list .cart-list-container{
     margin: 20px;
@@ -203,6 +204,7 @@ html{
     gap: 10px;
     text-align: center;
     align-items: center;
+    border-top: 1px solid #E1E8EE;
 }
 
 .cart-list span{
@@ -221,11 +223,19 @@ html{
 
 .cart-list h2{
     font-size: 20px;
+    box-shadow: inset;
 }
 
 .cart-list-container button{
     float: right;
-    margin-right:20px; 
+    margin-right:5px; 
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #00bcd4;
+    color: #fff;
+    border: 1px solid #00bcd4  ;
+    cursor: pointer;
+    transition: all 0.3s
 }
 
 
@@ -496,7 +506,7 @@ html{
 }
 
 
-.send-button{
+.send-button {
     font-size: 18px;
     color: #fff;
     width: 100%;
@@ -509,7 +519,8 @@ html{
     transition: 0.3s;
 }
 
-.send-button:hover{
+.send-button:hover,
+.cart-list-container button:hover{
     background: #FFF;
     color: #00bcd4;
 }
