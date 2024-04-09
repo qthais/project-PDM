@@ -167,11 +167,11 @@ html{
 }
 
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 10px; 
+    height: 10px; 
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #f2f2f2;;
+    border-bottom: 10px solid #fff;
     position: absolute;
     right:32px;
     top:-10px;
@@ -180,10 +180,10 @@ html{
 #header .cart_login .cart-list{
     position: fixed;
     width: 500px;
-    background-color: #ccb4b4;
+    background-color: #fff;
     top:60px;
     right:5px;
-    overflow: auto;
+    border-radius: 20px;
 }
 
 .cart-list .cart-item img{
@@ -210,6 +210,16 @@ html{
 .cart-list .item-quantity span:nth-child(2){
     background-color: transparent;
     color: #eee;
+}
+
+.cart-list h2{
+    margin-left: 20px
+}
+
+.cart-list button{
+    float: right;
+    margin-right:20px; 
+    margin-bottom: 30px;
 }
 
 
@@ -849,7 +859,7 @@ ul {
 }
 
 .container button{
-    background-color: black;
+    background-color: #0086d4;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -963,7 +973,7 @@ ul {
 }
 
 .toggle{
-    background-color: black;
+    background-color: #0086d4;
     height: 100%;
     /* background: linear-gradient(to right, #5c6bc0, #512da8); */
     color: #fff;
