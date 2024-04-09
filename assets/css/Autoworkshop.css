@@ -677,6 +677,8 @@ html{
     padding: 3rem;
 	padding-top: 7rem;
     padding-bottom: 80px;
+    background-image: url(https://www.capitaltyres.co.nz/edit/image_cache/prefooter_image_2000x1000c0pcenter.jpg);
+    
 }
 
 .footerContent {
@@ -726,12 +728,18 @@ html{
 }
 
 .link {
-    color: rgb(12, 8, 132);
+    color: rgb(244, 244, 247);
     font-size: 20px;
 }
 
+.link:hover {
+    color: #FF0000; 
+    text-decoration: none; 
+    transition: 0.5s;
+}
+
 .follow-us-box {
-    border: 3px solid #000; 
+    border: 3px solid #ffffff; 
     padding: 20px;
     width: 300px; 
     margin: 0 auto; 
@@ -741,8 +749,15 @@ html{
     margin: 15px 0; 
 }
 
+.info-name {
+    border-bottom: 2px solid #ffffff; 
+    padding-bottom: 5px; 
+    width: 240px; 
+    display: inline-block;
+}
+
 .information .info .info-name {
-    color: #000000;
+    color: #ffffff;
     font-size: 25px;
     font-weight: bold; 
     margin-bottom: 10px;
@@ -750,16 +765,26 @@ html{
     justify-content: center;
 }
 
+.fa-globe, .fa-envelope, .fa-user, .fa-address-card, .fa-shopping-cart {
+    color: white;
+}
+
 .bottomFooter {
     padding: 1.8rem;
-    background: #a9a7a8;
+    background: #000000;
     color: #fff;
     text-align: center;
+    font-size: 20px;
 }
 
 .bottomFooter a{
-	color: #000000;
+	color: #ff0101;
     font-weight: 600;
+    text-decoration: none;
+}
+
+a.link {
+    text-decoration: none;
 }
 
 ul {
