@@ -1,5 +1,5 @@
 //Service part
-const buyBtns = document.querySelectorAll('.js-buy-tickets')
+const buyBtns = document.querySelectorAll('.booking-button')
 const modal = document.querySelector('.js-modal')
 const modalContainer = document.querySelector('.js-modal-container')
 const modalClose = document.querySelector('.js-modal-close')

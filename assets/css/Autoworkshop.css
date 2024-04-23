@@ -806,7 +806,7 @@ ul {
 
 .modal-header{
     height: 125px;
-    background-color: #0086d4;
+    background-color: rgb(28, 86, 149);
     display: flex;
 
 }
@@ -868,7 +868,7 @@ ul {
 
 #buy-tickets{
     border: none;
-    background-color: #0086d4;
+    background-color:rgb(28, 86, 149);
     color:#fff;
     width: 100%;
     text-transform: uppercase;
