@@ -7,7 +7,7 @@
     <title>Auto WorkShop</title>
     <link rel="stylesheet" href="./assets/css/Autoworkshop.css">
     <link rel="stylesheet" href="./assets/themify-icons/themify-icons.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <!-- Những thành phần thường gặp trên giao diện website:
 
@@ -25,6 +25,7 @@
 <body>
     <div id="main">
         <div id="header">
+            <img src="./assets/css/img/Logo/Logo.jpg" alt="" class="logo">
             <ul id="nav">
                 <li><a href="#slider">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -46,7 +47,77 @@
                     <div class="ti-user"></div>
                     <div class="login-button">Account</div>
                 </div>
-                <div class="ti-shopping-cart-full"></div>
+                <div class="cart-section">
+                    <div class="ti-shopping-cart-full">
+                        <span class="cart-quantity">0</span>
+                    </div>
+                    <!-- On process -->
+                    <div class="cart-list">
+                        <div class="cart-list-container">
+                            <div class="arrow-up"></div>
+                            <h2>Shopping Cart</h2>
+                            <div class="cart-item-container">
+                                <div class="cart-item">
+                                    <div class="item-img">
+                                        <img src="./assets/css/img/Car_accessories/volang.jpg" alt="">
+                                    </div>
+                                    <div class="item-name">
+                                        Steering wheel
+                                    </div>
+                                    <div class="cartItem-price">
+                                        $99
+                                    </div>
+                                    <div class="item-quantity">
+                                        <span class="minus">-</span>
+                                        <span>1</span>
+                                        <span class="plus">+</span>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="item-img">
+                                        <img src="./assets/css/img/Car_accessories/banhxe.jpg" alt="">
+                                    </div>
+                                    <div class="item-name">
+                                        Wheel
+                                    </div>
+                                    <div class="cartItem-price">
+                                        $99
+                                    </div>
+                                    <div class="item-quantity">
+                                        <span class="minus">-</span>
+                                        <span>1</span>
+                                        <span class="plus">+</span>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <div class="item-img">
+                                        <img src="./assets/css/img/Car_accessories/banhrang.jpg" alt="">
+                                    </div>
+                                    <div class="item-name">
+                                        Clutches
+                                    </div>
+                                    <div class="cartItem-price">
+                                        $99
+                                    </div>
+                                    <div class="item-quantity">
+                                        <span class="minus">-</span>
+                                        <span>1</span>
+                                        <span class="plus">+</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="cart-payment">
+                                <div class="payment-information">
+                                    <div class="total-text">Total</div>
+                                    <div class="total-price">$100</div>
+                                </div>
+                                <button>Check out</button>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div> 
+                </div>
             </div>
         </div>
 
@@ -96,77 +167,199 @@
             <div id="tour" class="tour-section">
                 <div class="content-section">
                     <h2 class="section-heading text-white">CAR ACCESSORIES</h2>
-                    <div class="section-sub-heading text-white">Remember to try our serivce!</div>
+                    <div class="section-sub-heading text-white">Feeling the difference!</div>
                     <ul class="ticket-list">
-                        <li>September <span class="sold-out">Unavailable</span></li>
-                        <li>October <span class="sold-out">Unavailable</span></li>
-                        <li>November <span class="quantity">3</span></li>
+                        <li>Steering wheel <span class="sold-out">Unavailable</span></li>
+                        <li>Wheel <span class="sold-out">Unavailable</span></li>
+                        <li>Clutches <span class="quantity">3</span></li>
                     </ul>
                     <div class="booking-section">
-                        <div class="place-item">
-                            <img class="place-img" src="./assets/css/img/Car_accessories/volang.jpg" alt=""></img>
-                            <div class="place-body">
-                                <h3 class="place-heading">Steering wheel</h3>
-                                <p class="play-time">Fri 27 Nov 2016</p>
-                                <p class="place-desc">Navigate with ease. Grip the future with our steering wheel.</p>
-                                <button class="place-buy js-buy-tickets">Add to cart</button>
+                        <div class="accessories-item">
+                            <img class="accessories-img" src="./assets/css/img/Car_accessories/volang.jpg" alt=""></img>
+                            <div class="accessories-body">
+                                <h3 class="accessories-heading">Steering wheel</h3>
+                                <p class="accessories-desc">Navigate with ease. Grip the future with our steering wheel.</p>
+                                <div class="buy-container">
+                                    <button class="accessories-buy js-buy-tickets">Add to cart</button>
+                                    <span class="item-price">$99</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="place-item">
-                            <img class="place-img" src="./assets/css/img/Car_accessories/banhxe.jpg" alt=""></img>
-                            <div class="place-body">
-                                <h3 class="place-heading">Wheel</h3>
-                                <p class="play-time">Sat 28 Nov 2016</p>
-                                <p class="place-desc">Unleash performance with every turn. Choose our car wheel.</p>
-                                <button class="place-buy js-buy-tickets">Add to cart</button>
+                        <div class="accessories-item">
+                            <img class="accessories-img" src="./assets/css/img/Car_accessories/banhxe.jpg" alt=""></img>
+                            <div class="accessories-body">
+                                <h3 class="accessories-heading">Wheel</h3>
+                                <p class="accessories-desc">Unleash performance with every turn. Choose our car wheel.</p>
+                                <div class="buy-container">
+                                    <button class="accessories-buy js-buy-tickets">Add to cart</button>
+                                    <span class="item-price">$199</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="place-item">
-                            <img class="place-img" src="./assets/css/img/Car_accessories/banhrang.jpg" alt=""></img>
-                            <div class="place-body">
-                                <h3 class="place-heading">Clutches</h3>
-                                <p class="play-time">Sun 29 Nov 2016</p>
-                                <p class="place-desc">PShift smoothly, drive effortlessly. Trust our clutch system.</p>
-                                <button class="place-buy js-buy-tickets">Add to cart</button>
+                        <div class="accessories-item">
+                            <img class="accessories-img" src="./assets/css/img/Car_accessories/banhrang.jpg" alt=""></img>
+                            <div class="accessories-body">
+                                <h3 class="accessories-heading">Clutches</h3>
+                                <p class="accessories-desc">PShift smoothly, drive effortlessly. Trust our clutch system.</p>
+                                <div class="buy-container">
+                                    <button class="accessories-buy js-buy-tickets">Add to cart</button>
+                                    <span class="item-price">$19</span>
+                                </div>
                             </div>
                         </div>
                         <div class="clear"></div>
                     </div>
                 </div>
+            </div>
+            <div class="doorstep-text">
+                <div class="doorstep-slider">
+                    <div class="doorstep-list">
+                        <div class="doorstep-item">
+                            <div class="doorstep-img-wrap">
+                                <img src="./assets/css/img/Doorstep_services/oilchange.jpg" alt="">
+                                <div class="text-container">
+                                    <h2 class="text-heading">DOORSTEP SERVICES</h2>
+                                    <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
+                                    <button class="booking-button">Book now!</button>
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="doorstep-item">
+                            <div class="doorstep-img-wrap">
+                                <img src="./assets/css/img/Doorstep_services/batteryTesting.jpg" alt="">
+                                <div class="text-container">
+                                    <h2 class="text-heading">DOORSTEP SERVICES</h2>
+                                    <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
+                                    <button class="booking-button">Book now!</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="doorstep-item">
+                            <div class="doorstep-img-wrap">
+                                <img src="./assets/css/img/Doorstep_services/carwashing.jpg" alt="">
+                                <div class="text-container">
+                                    <h2 class="text-heading">DOORSTEP SERVICES</h2>
+                                    <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
+                                    <button class="booking-button">Book now!</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button id="prev"><</button>
+                                <button id="next">></button>
+                    </div>
+                    <div class="dots">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                    </div>
+                </div>
             </div>
 
-            <form action="">
-                <div id="contact" class="contact-section content-section">
-                    <h2 class="section-heading">CONTACT</h2>
-                    <div class="section-sub-heading">Fan? Drop a note!</div>
+            <form class="contact-form text-white" action="">
+                <div id="contact" class="contact-section">
+                    <h2 class="section-heading">CONTACT US</h2>
+                    <div class="section-sub-heading">Car service encompasses essential maintenance tasks to ensure the optimal performance and longevity of vehicles, including oil changes, tire rotations, and brake inspections.</div>
                     <div class="contact-content">
                         <div class="contact-information">
-                            <div><span class="contact-icon  ti-location-pin"></span>HCMC, Viet Nam</div>
-                            <div><span class="contact-icon ti-mobile"></span>Phone: +84123456789</div>
-                            <div><span class="contact-icon ti-email"></span>Email: thaiallb63@gmail.com</div>
+                            <div class="information-container">
+                                <div class="contact-icon fa fa-home"></div>
+                                <div class="information-description">
+                                    <h4 class="description-heading">Address</h4>
+                                    <div class="description-text">HCMC, Viet Nam</div>
+                                </div>
+                                
+                            </div>
+                            <div class="information-container">
+                                <div class="contact-icon fa fa-phone"></div>
+                                <div class="information-description">
+                                    <h4 class="description-heading">Phone</h4>
+                                    <div class="description-text">+84123456789</div>
+                                </div>
+                                
+                            </div>
+                            <div class="information-container">
+                                <div class="contact-icon fa fa-envelope"></div>
+                                <div class="information-description">
+                                    <h4 class="description-heading">Email</h4>
+                                    <div class="description-text">thaiallb63@gmail.com</div>
+                                </div>
+                                
+                            </div>
                         </div>
                         <div class="contact-send">
                             <div class="contact-sender">
-                                <input required name="" placeholder="Name" class="name-input input-member" type="text">
-                                <input required name="" placeholder="Email" type="email"
-                                    class="email-input input-member">
-                            </div>
-                            <div class="contact-message ">
-                                <input required name="" class="input-member" type="text" placeholder="Message">
-                            </div>
+                                <h2>Send Message</h2>
+                                <input required name="" placeholder="Full Name" class="name-input input-member" type="text">
+                                <input required name="" placeholder="Email" type="email" class="email-input input-member">
+                                <input required name="" class="input-member" type="text" placeholder="Type your Message">
+                                <input type="submit" class="send-button" value="Send"></input>
+                            </div>    
                         </div>
-                    </div>
-                    <input type="submit" class="send-button" value="Send"></input>
+                    </div>                    
                 </div>
             </form>
         </div>
 
-        <div id="footer">
-
-        </div>
+        <footer> <!-- modified by Thu -->
+            <div id="footer">
+                <div class="footerContent">
+                    <div class = "information">
+                        <ul class ="info">
+                            <li class = "info-name">Shop</li>
+                            <li><a href ="" class="link">About Us</a></li>
+                            <li><a href ="" class="link">Offers</a></li>
+                            <li><a href ="" class="link">Become a Customer</a></li>
+                        </ul>
+                    </div>
+                    <div class ="information">
+                        <ul class = "info">
+                            <li class = "info-name">Customer Service</li>
+                            <li><a href ="" class="link">Hotline: 123456</a></li>
+                            <li><a href ="" class="link">Forum</a></li>
+                        </ul>
+                    </div>
+                    <div class ="information">
+                        <ul class = "info">
+                            <li class = "info-name">Account</li>
+                            <li><i class="fa fa-address-card"></i><a href ="" class="link"> Profile</a></li>
+                            <li><i class="fa fa-user"></i> <a href ="" class="link"> My Account</a></li>
+                            <li><i class="fa fa-shopping-cart"></i><a href ="" class="link"> Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class ="information">
+                        <ul class = "info">
+                            <li class = "info-name">Address</li>
+                            <li><i class="fa fa-globe"></i> <a href="" class="link"> International University</a></li>
+                            <li><i class="fa fa-envelope"></i> <a href="" class="link"> Email</a></li>
+                        </ul>
+                    </div>
+                    <div class ="information">
+                        <div class="follow-us-box">
+                            <ul class = "info">
+                                <li class = "info-name" style="text-align: center;">Follow Us</li>
+                                <div class = "icons">
+                                    <a href=""><i class="fa-brands ti-facebook"></i></a>
+                                    <a href=""><i class="fa-brands ti-instagram"></i></a>
+                                    <a href=""><i class="fa-brands ti-youtube"></i></a>
+                                    <a href=""><i class="fa-brands ti-google"></i></a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <section id = "bottom">
+            <div class="bottomFooter"><i></i>
+                Copyright &copy;2024; Designed by <a href="#">Group 6</a>
+            </div>
+        </section>
     </div>
-
 
     <div class="modal js-modal">
         <div class="modal-container js-modal-container">
@@ -183,9 +376,9 @@
                 <div class="modal-body">
                     <label for="quantity" class="modal-label">
                         <i class="ti-shopping-cart"></i>
-                        Quantity
+                        Phone
                     </label>
-                    <input id="quantity" required type="text" class="modal-input" placeholder="How many?">
+                    <input type="tel" id="telephone" required type="text" class="modal-input" placeholder="Your phone?" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" >
 
                     <label for="address" class="modal-label">
                         <i class="ti-user"></i>
@@ -252,22 +445,7 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="footer">
-            <div class="footerContainer">
-                <div class="icons">
-                    <a href=""><i class="fa-brands ti-facebook"></i></a>
-                    <a href=""><i class="fa-brands ti-instagram"></i></a>
-                    <a href=""><i class="fa-brands ti-twitter"></i></a>
-                    <a href=""><i class="fa-brands ti-youtube"></i></a>
-                    <a href=""><i class="fa-brands ti-google"></i></a>
-                </div>
-                <div class="footerBottom">
-                    <p>Copyright &copy;2024; Designed by <span class="designer">Group 6</span></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+
 
 </body>
 <script src="./assets/AutoWorkshop.js"></script>

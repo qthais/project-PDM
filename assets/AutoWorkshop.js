@@ -1,4 +1,5 @@
-const buyBtns = document.querySelectorAll('.js-buy-tickets')
+//Service part
+const buyBtns = document.querySelectorAll('.booking-button')
 const modal = document.querySelector('.js-modal')
 const modalContainer = document.querySelector('.js-modal-container')
 const modalClose = document.querySelector('.js-modal-close')
@@ -17,8 +18,8 @@ modal.addEventListener('click', hidenBuyTickets)
 modalContainer.addEventListener('click', function (event) {
     event.stopPropagation()
 })
-
-const loginHeader = document.querySelector('.login-button')
+//Login part
+const loginHeader = document.querySelector('.login-section')
 const loginModal=document.querySelector('.login-modal')
 const loginContainer=document.querySelector('.login-modal .container')
 loginHeader.addEventListener('click', function () {
@@ -31,6 +32,7 @@ loginContainer.addEventListener('click', function (event) {
     event.stopPropagation()
 })
 
+//Slider part
 var sliderHref = document.querySelector('#slider')
 var sliderText = [
     { heading: 'So Convenient!', description: 'Convenient doorstep service - We come to you for all your needs.' },
@@ -59,3 +61,45 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
+//Doorstep service part
+var doorstepList= document.querySelector('.doorstep-slider .doorstep-list')
+var doorstepItem= document.querySelectorAll('.doorstep-list .doorstep-item')
+var dots=document.querySelectorAll('.dots li')
+var prev=document.getElementById('prev')
+var next=document.getElementById('next')
+let active=0;
+let lengthItems=doorstepItem.length-1
+next.onclick= function(){
+    if(active+1>lengthItems){
+        active=0;
+    }
+    else{
+        active+=1;
+    }
+    reloadSlider();
+}
+prev.onclick=function(){
+    if(active==0){
+        active=lengthItems
+    }else{
+        active-=1
+    }
+    reloadSlider();
+}
+dots.forEach(function(li,index){
+    li.addEventListener('click',function(){
+        active=index;
+        reloadSlider();
+    })
+})
+
+let refreshSlider= setInterval(()=>next.click(),4000)
+function reloadSlider(){
+    let checkLeft=doorstepItem[active].offsetLeft
+    doorstepList.style.left=-checkLeft+'px'
+    let previousDot= document.querySelector('.doorstep-slider .dots li.active')
+    previousDot.classList.remove('active')
+    dots[active].classList.add('active')
+    clearInterval(refreshSlider);
+    refreshSlider= setInterval(()=>next.click(),4000)
+}
