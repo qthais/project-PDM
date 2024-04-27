@@ -15,7 +15,7 @@ function addOpenBlock(element) {
 function removeOpenBlock(element) {
     element.classList.remove('openBlock')
 }
-function stopProba(container,modal) {
+function stopProba(container, modal) {
     modal.addEventListener('click', () => removeOpenFlex(modal))
     container.addEventListener('click', function (event) {
         event.stopPropagation()
@@ -25,13 +25,13 @@ for (const buyBtn of buyBtns) {
     buyBtn.addEventListener('click', () => addOpenFlex(modal))
 }
 modalClose.addEventListener('click', () => removeOpenFlex(modal))
-stopProba(modalContainer,modal)
+stopProba(modalContainer, modal)
 //Login part
 const loginHeader = document.querySelector('.login-section')
 const loginModal = document.querySelector('.login-modal')
 const loginContainer = document.querySelector('.login-modal .container')
 loginHeader.addEventListener('click', () => addOpenFlex(loginModal))
-stopProba(loginContainer,loginModal)
+stopProba(loginContainer, loginModal)
 
 //Slider part
 var sliderHref = document.querySelector('#slider')
@@ -63,14 +63,14 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 //CartListpart
-const htmlElement = document.body;
-var cartButton = document.querySelector('#header .cart-section')
-var cartList = document.querySelector('#header .cart_login .cart-list')
-cartButton.addEventListener('click', () => addOpenBlock(cartList))
-htmlElement.addEventListener('click', () => removeOpenBlock(cartList))
-    cartButton.addEventListener('click', function (event) {
-        event.stopPropagation()
-    })
+// const htmlElement = document.body;
+// var cartButton = document.querySelector('#header .cart-section')
+// var cartList = document.querySelector('#header .cart_login .cart-list')
+// cartButton.addEventListener('click', () => addOpenBlock(cartList))
+// htmlElement.addEventListener('click', () => removeOpenBlock(cartList))
+// cartButton.addEventListener('click', function (event) {
+//     event.stopPropagation()
+// })
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
 var doorstepItem = document.querySelectorAll('.doorstep-list .doorstep-item')
