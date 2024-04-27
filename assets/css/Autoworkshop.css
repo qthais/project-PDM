@@ -188,9 +188,9 @@ html{
     display: none;
 }
 
-#header .cart-section:hover .cart-list{
+/* #header .cart-section:hover .cart-list{
     display: block;
-}
+} */
 
 .cart-list .cart-list-container{
     margin: 20px;
@@ -1094,8 +1094,11 @@ ul {
 }
 
 /* addition class */
-.open{
-    display: flex;
+.openFlex{
+    display: flex !important;
+}
+.openBlock{
+    display: block !important;
 }
 
 @keyframes modalFadein{
