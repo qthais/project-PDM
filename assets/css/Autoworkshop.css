@@ -188,9 +188,6 @@ html{
     display: none;
 }
 
-#header .cart-section:hover .cart-list{
-    display: block;
-}
 
 .cart-list .cart-list-container{
     margin: 20px;

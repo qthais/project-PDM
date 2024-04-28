@@ -63,14 +63,13 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 //CartListpart
-// const htmlElement = document.body;
-// var cartButton = document.querySelector('#header .cart-section')
-// var cartList = document.querySelector('#header .cart_login .cart-list')
-// cartButton.addEventListener('click', () => addOpenBlock(cartList))
-// htmlElement.addEventListener('click', () => removeOpenBlock(cartList))
-// cartButton.addEventListener('click', function (event) {
-//     event.stopPropagation()
-// })
+
+var cartButton = document.querySelector('.ti-shopping-cart-full')
+var cartList = document.querySelector('#header .cart_login .cart-list')
+var closeCartBtn=document.querySelector('#header .closeCartListBtn')
+cartButton.addEventListener('click', () => addOpenBlock(cartList))
+closeCartBtn.addEventListener('click', () => removeOpenBlock(cartList))
+
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
 var doorstepItem = document.querySelectorAll('.doorstep-list .doorstep-item')
