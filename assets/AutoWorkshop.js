@@ -69,6 +69,39 @@ var cartList = document.querySelector('#header .cart_login .cart-list')
 var closeCartBtn=document.querySelector('#header .closeCartListBtn')
 cartButton.addEventListener('click', () => addOpenBlock(cartList))
 closeCartBtn.addEventListener('click', () => removeOpenBlock(cartList))
+//Dynamic Cart
+var listProductHtml = document.querySelector('.booking-section .productList')
+addData = () => {
+    if (listProducts.length > 0) {
+        const products = listProducts.map((product) =>
+            `
+            <div class="accessories-item">
+                <img class="accessories-img" src="${product.image}" alt="">
+                <div class="accessories-body">
+                    <h3 class="accessories-heading">${product.name}</h3>
+                    <p class="accessories-desc">Navigate with ease. Grip the future with our steering wheel.</p>
+                    <div class="buy-container">
+                        <button class="accessories-buy js-buy-tickets">Add to cart</button>
+                        <span class="item-price">$${product.price}</span>
+                    </div>
+                </div>
+            </div>
+            `
+        )
+        const htmlString=products.join(" ")
+        listProductHtml.innerHTML = htmlString;
+    }
+}
+let listProducts=[]
+const initCart=()=>{
+    fetch('/assets/Data/Product.json')
+    .then(res=>res.json())
+    .then(data=>{
+        listProducts=data
+        addData();
+    })
+}
+initCart()
 
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
