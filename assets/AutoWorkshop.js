@@ -125,19 +125,23 @@ const addToCart = (product_id) => {
             quantity: 1
         })
     } else {
-        carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity += 1;
+        carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
     }
+    console.log(carts)
     addCartToHTML();
 }
 var cartItemContainer = document.querySelector('.cart-item-container')
-const addCartToHTML = () => {
-    cartItemContainer.innerHTML = '';
-    let positionProduct=listProducts.findIndex((value)=>value.id=product_id)
-    let info=listProducts[positionProduct]
+const addCartToHTML = (d) => {
+    let tempString = ""
+    cartItemContainer.innerHTML = "";
+
+
     if (carts.length > 0) {
-        const htmlString = carts.map((item) =>
-            `
-            <div class="cart-item-container">
+        carts.forEach(item => {
+            let positionProduct = listProducts.findIndex((value) => value.id == item.product_id)
+            let info = listProducts[positionProduct]
+            var htmlItem = `
+            
             <div class="cart-item">
                 <div class="item-img">
                     <img src="${info.image}" alt="">
@@ -153,11 +157,12 @@ const addCartToHTML = () => {
                     <span>${item.quantity}</span>
                     <span class="plus">+</span>
                 </div>
-            </div>
-            `
-        ).join(" ")
-        cartItemContainer.innerHTML = htmlString;
+            </div>`
+            tempString += htmlItem;
+        })
+
     }
+    cartItemContainer.innerHTML = tempString;
 }
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')

@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name":"Steering wheel",
+        "price":99,
+        "image":"./assets/css/img/Car_accessories/volang.jpg"
+    },
+    {
+        "id":2,
+        "name":"Wheel",
+        "price":99,
+        "image":"./assets/css/img/Car_accessories/banhxe.jpg"
+    },
+    {
+        "id":3,
+        "name":"Clutches",
+        "price":19,
+        "image":"./assets/css/img/Car_accessories/banhrang.jpg"
+    }
+]
