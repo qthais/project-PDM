@@ -108,7 +108,7 @@ const initCart = () => {
             }
         })
 }
-initCart()
+
 listProductHtml.addEventListener('click', (event) => {
     let positionClick = event.target;
     if (positionClick.classList.contains('accessories-buy')) {
@@ -117,6 +117,7 @@ listProductHtml.addEventListener('click', (event) => {
         
     }
 });
+
 const addToCart = (product_id) => {
     let positionThisProductInCart = carts.findIndex((value) => value.product_id == product_id)
     if (carts.length <= 0) {
@@ -158,7 +159,7 @@ const addCartToHTML = () => {
                 <div class="cartItem-price">
                     $${info.price}
                 </div>
-                <div class="item-quantity">
+                <div class="item-quantity" data-id="${info.id}">
                     <span class="minus">-</span>
                     <span>${item.quantity}</span>
                     <span class="plus">+</span>
@@ -170,9 +171,41 @@ const addCartToHTML = () => {
     }
     cartItemContainer.innerHTML = tempString;
 }
+cartItemContainer.addEventListener('click',(e)=>{
+    let positionClick=e.target;
+    if(positionClick.classList.contains('minus')||positionClick.classList.contains('plus')){
+        let product_id=positionClick.parentElement.dataset.id;
+        let type='minus';
+        if(positionClick.classList.contains('plus')){
+            type='plus';
+        }
+        changeQuantity(product_id,type);
+    }
+})
+const changeQuantity=(product_id,type)=>{
+    let positionItemCart=carts.findIndex((value)=>value.product_id==product_id)
+    if(positionItemCart>=0){
+        switch (type){
+            case 'plus':
+                carts[positionItemCart].quantity-=1;
+                break;
+            default:
+                let valueChange=carts[positionItemCart].quantity-=1;
+                if(valueChange>0){
+                    carts[positionItemCart].quantity=valueChange
+                }else{
+                    carts.splice(positionItemCart,1);
+                }
+                break;
+        }
+        addCartToMeMory();
+        addCartToHTML();
+    }
+}
 const addCartToMeMory=()=>{
     localStorage.setItem('cart',JSON.stringify(carts));
 }
+initCart()
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
 var doorstepItem = document.querySelectorAll('.doorstep-list .doorstep-item')
