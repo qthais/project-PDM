@@ -187,7 +187,7 @@ const changeQuantity=(product_id,type)=>{
     if(positionItemCart>=0){
         switch (type){
             case 'plus':
-                carts[positionItemCart].quantity-=1;
+                carts[positionItemCart].quantity+=1;
                 break;
             default:
                 let valueChange=carts[positionItemCart].quantity-=1;
