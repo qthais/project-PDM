@@ -71,28 +71,30 @@ cartButton.addEventListener('click', () => addOpenBlock(cartList))
 closeCartBtn.addEventListener('click', () => removeOpenBlock(cartList))
 //Dynamic Cart
 var listProductHtml = document.querySelector('.booking-section .productList')
+let listProducts=[]
+let carts=[]
+let cartQuantity=document.querySelector('.cart-quantity')
 addData = () => {
     if (listProducts.length > 0) {
-        const products = listProducts.map((product) =>
+        const htmlString = listProducts.map((product) =>
             `
-            <div class="accessories-item">
+            <div class="accessories-item" ">
                 <img class="accessories-img" src="${product.image}" alt="">
                 <div class="accessories-body">
                     <h3 class="accessories-heading">${product.name}</h3>
                     <p class="accessories-desc">Navigate with ease. Grip the future with our steering wheel.</p>
-                    <div class="buy-container">
+                    <div class="buy-container" data-id="${product.id}">
                         <button class="accessories-buy js-buy-tickets">Add to cart</button>
                         <span class="item-price">$${product.price}</span>
                     </div>
                 </div>
             </div>
             `
-        )
-        const htmlString=products.join(" ")
+        ).join(" ")
         listProductHtml.innerHTML = htmlString;
     }
 }
-let listProducts=[]
+
 const initCart=()=>{
     fetch('/assets/Data/Product.json')
     .then(res=>res.json())
@@ -102,7 +104,31 @@ const initCart=()=>{
     })
 }
 initCart()
-
+listProductHtml.addEventListener('click',(event)=>{
+    let positionClick = event.target;
+    if(positionClick.classList.contains('accessories-buy')){
+        let product_id = positionClick.parentElement.dataset.id;
+        addToCart(product_id)
+    }
+});
+addToCart=(product_id)=>{
+    let positionThisProductInCart=carts.findIndex((value)=>value.product_id==product_id)
+    if(carts.length<=0){
+        carts=[{
+            product_id:product_id,
+            quantity:1
+        }
+        ]
+    }else if(positionThisProductInCart<0){
+        carts.push({
+            product_id:product_id,
+            quantity:1
+        })
+    }else{
+        carts[positionThisProductInCart].quantity=carts[positionThisProductInCart].quantity+=1;
+    }
+    console.log(carts)
+}
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
 var doorstepItem = document.querySelectorAll('.doorstep-list .doorstep-item')
