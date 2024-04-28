@@ -150,7 +150,7 @@ const addCartToHTML = (d) => {
                     ${info.name}
                 </div>
                 <div class="cartItem-price">
-                    ${info.price}
+                    $${info.price}
                 </div>
                 <div class="item-quantity">
                     <span class="minus">-</span>
