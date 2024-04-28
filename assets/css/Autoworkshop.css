@@ -160,6 +160,7 @@ html{
     padding: 2px 7px;
     background-color: #f44336;
     border-radius: 50%;
+    transform: scaleX(-1);
 }
 
 #header .ti-shopping-cart-full:hover{

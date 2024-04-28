@@ -70,6 +70,7 @@ var closeCartBtn = document.querySelector('#header .closeCartListBtn')
 cartButton.addEventListener('click', () => addOpenBlock(cartList))
 closeCartBtn.addEventListener('click', () => removeOpenBlock(cartList))
 //Dynamic Cart
+var cartItemContainer = document.querySelector('.cart-item-container')
 var listProductHtml = document.querySelector('.booking-section .productList')
 let listProducts = []
 let carts = []
@@ -101,6 +102,10 @@ const initCart = () => {
         .then(data => {
             listProducts = data
             addData();
+            if(localStorage.getItem('cart')){
+                carts=JSON.parse(localStorage.getItem('cart'));
+                addCartToHTML();
+            }
         })
 }
 initCart()
@@ -109,6 +114,7 @@ listProductHtml.addEventListener('click', (event) => {
     if (positionClick.classList.contains('accessories-buy')) {
         let product_id = positionClick.parentElement.dataset.id;
         addToCart(product_id)
+        
     }
 });
 const addToCart = (product_id) => {
@@ -129,15 +135,15 @@ const addToCart = (product_id) => {
     }
     console.log(carts)
     addCartToHTML();
+    addCartToMeMory();
 }
-var cartItemContainer = document.querySelector('.cart-item-container')
-const addCartToHTML = (d) => {
+
+const addCartToHTML = () => {
     let tempString = ""
-    cartItemContainer.innerHTML = "";
-
-
+    let total=0;
     if (carts.length > 0) {
         carts.forEach(item => {
+            total=total+item.quantity
             let positionProduct = listProducts.findIndex((value) => value.id == item.product_id)
             let info = listProducts[positionProduct]
             var htmlItem = `
@@ -160,9 +166,12 @@ const addCartToHTML = (d) => {
             </div>`
             tempString += htmlItem;
         })
-
+        cartQuantity.innerText=total
     }
     cartItemContainer.innerHTML = tempString;
+}
+const addCartToMeMory=()=>{
+    localStorage.setItem('cart',JSON.stringify(carts));
 }
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
