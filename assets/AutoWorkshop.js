@@ -66,14 +66,14 @@ loginBtn.addEventListener('click', () => {
 
 var cartButton = document.querySelector('.ti-shopping-cart-full')
 var cartList = document.querySelector('#header .cart_login .cart-list')
-var closeCartBtn=document.querySelector('#header .closeCartListBtn')
+var closeCartBtn = document.querySelector('#header .closeCartListBtn')
 cartButton.addEventListener('click', () => addOpenBlock(cartList))
 closeCartBtn.addEventListener('click', () => removeOpenBlock(cartList))
 //Dynamic Cart
 var listProductHtml = document.querySelector('.booking-section .productList')
-let listProducts=[]
-let carts=[]
-let cartQuantity=document.querySelector('.cart-quantity')
+let listProducts = []
+let carts = []
+let cartQuantity = document.querySelector('.cart-quantity')
 addData = () => {
     if (listProducts.length > 0) {
         const htmlString = listProducts.map((product) =>
@@ -95,39 +95,69 @@ addData = () => {
     }
 }
 
-const initCart=()=>{
+const initCart = () => {
     fetch('/assets/Data/Product.json')
-    .then(res=>res.json())
-    .then(data=>{
-        listProducts=data
-        addData();
-    })
+        .then(res => res.json())
+        .then(data => {
+            listProducts = data
+            addData();
+        })
 }
 initCart()
-listProductHtml.addEventListener('click',(event)=>{
+listProductHtml.addEventListener('click', (event) => {
     let positionClick = event.target;
-    if(positionClick.classList.contains('accessories-buy')){
+    if (positionClick.classList.contains('accessories-buy')) {
         let product_id = positionClick.parentElement.dataset.id;
         addToCart(product_id)
     }
 });
-addToCart=(product_id)=>{
-    let positionThisProductInCart=carts.findIndex((value)=>value.product_id==product_id)
-    if(carts.length<=0){
-        carts=[{
-            product_id:product_id,
-            quantity:1
+const addToCart = (product_id) => {
+    let positionThisProductInCart = carts.findIndex((value) => value.product_id == product_id)
+    if (carts.length <= 0) {
+        carts = [{
+            product_id: product_id,
+            quantity: 1
         }
         ]
-    }else if(positionThisProductInCart<0){
+    } else if (positionThisProductInCart < 0) {
         carts.push({
-            product_id:product_id,
-            quantity:1
+            product_id: product_id,
+            quantity: 1
         })
-    }else{
-        carts[positionThisProductInCart].quantity=carts[positionThisProductInCart].quantity+=1;
+    } else {
+        carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity += 1;
     }
-    console.log(carts)
+    addCartToHTML();
+}
+var cartItemContainer = document.querySelector('.cart-item-container')
+const addCartToHTML = () => {
+    cartItemContainer.innerHTML = '';
+    let positionProduct=listProducts.findIndex((value)=>value.id=product_id)
+    let info=listProducts[positionProduct]
+    if (carts.length > 0) {
+        const htmlString = carts.map((item) =>
+            `
+            <div class="cart-item-container">
+            <div class="cart-item">
+                <div class="item-img">
+                    <img src="${info.image}" alt="">
+                </div>
+                <div class="item-name">
+                    ${info.name}
+                </div>
+                <div class="cartItem-price">
+                    ${info.price}
+                </div>
+                <div class="item-quantity">
+                    <span class="minus">-</span>
+                    <span>${item.quantity}</span>
+                    <span class="plus">+</span>
+                </div>
+            </div>
+            `
+        ).join(" ")
+        cartItemContainer.innerHTML = htmlString;
+    }
 }
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
