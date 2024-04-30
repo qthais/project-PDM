@@ -142,6 +142,8 @@ const addToCart = (product_id) => {
 const addCartToHTML = () => {
     let tempString = ""
     let total=0;
+    const priceDiv=document.querySelector('.total-price')
+    var totalPrice=0;
     if (carts.length > 0) {
         carts.forEach(item => {
             total=total+item.quantity
@@ -166,7 +168,10 @@ const addCartToHTML = () => {
                 </div>
             </div>`
             tempString += htmlItem;
+            totalPrice+=info.price*item.quantity;
+            
         })
+        priceDiv.innerText="$"+totalPrice;
         cartQuantity.innerText=total
     }
     cartItemContainer.innerHTML = tempString;
