@@ -13,5 +13,6 @@
             "database": "oracle",
             "username": "root"
         }
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
