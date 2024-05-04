@@ -56,71 +56,73 @@
                         <div class="cart-list-container">
                             <div class="arrow-up"></div>
                             <h2>Shopping Cart</h2>
-                            <div class="cart-item-container">
-                                <form action="AutoWorkshop.php" method="post">
-                                    <div class="cart-item">
-                                        <div class="item-img">
-                                            <img src="./assets/css/img/Car_accessories/volang.jpg" alt="">
+                            <form action="index.php" method="post">
+
+                                <div class="cart-item-container">
+                                        <!-- <div class="cart-item">
+                                            <div class="item-img">
+                                                <img src="./assets/css/img/Car_accessories/volang.jpg" alt="">
+                                            </div>
+                                            <div class="item-name">
+                                                Steering wheel
+                                            </div>
+                                            <div class="cartItem-price">
+                                                $99
+                                            </div>
+                                            <div class="item-quantity">
+                                                <span class="minus">-</span>
+                                                <input name="SteeringWheel" type="text" value="1" readonly>
+                                                <span class="plus">+</span>
+                                            </div>
                                         </div>
-                                        <div class="item-name">
-                                            Steering wheel
+                                        <div class="cart-item">
+                                            <div class="item-img">
+                                                <img src="./assets/css/img/Car_accessories/banhxe.jpg" alt="">
+                                            </div>
+                                            <div class="item-name">
+                                                Wheel
+                                            </div>
+                                            <div class="cartItem-price">
+                                                $99
+                                            </div>
+                                            <div class="item-quantity">
+                                                <span class="minus">-</span>
+                                                <input name="Wheel" type="text" value="1" readonly>
+                                                <span class="plus">+</span>
+                                            </div>
                                         </div>
-                                        <div class="cartItem-price">
-                                            $99
-                                        </div>
-                                        <div class="item-quantity">
-                                            <span class="minus">-</span>
-                                            <span>1</span>
-                                            <span class="plus">+</span>
-                                        </div>
-                                    </div>
-                                    <div class="cart-item">
-                                        <div class="item-img">
-                                            <img src="./assets/css/img/Car_accessories/banhxe.jpg" alt="">
-                                        </div>
-                                        <div class="item-name">
-                                            Wheel
-                                        </div>
-                                        <div class="cartItem-price">
-                                            $99
-                                        </div>
-                                        <div class="item-quantity">
-                                            <span class="minus">-</span>
-                                            <span>1</span>
-                                            <span class="plus">+</span>
-                                        </div>
-                                    </div>
-                                    <div class="cart-item">
-                                        <div class="item-img">
-                                            <img src="./assets/css/img/Car_accessories/banhrang.jpg" alt="">
-                                        </div>
-                                        <div class="item-name">
-                                            Clutches
-                                        </div>
-                                        <div class="cartItem-price">
-                                            $99
-                                        </div>
-                                        <div class="item-quantity">
-                                            <span class="minus">-</span>
-                                            <span>1</span>
-                                            <span class="plus">+</span>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="cart-payment">
-                                <div class="payment-information">
-                                    <div class="total-text">Total</div>
-                                    <div class="total-price">$0</div>
+                                        <div class="cart-item">
+                                            <div class="item-img">
+                                                <img src="./assets/css/img/Car_accessories/banhrang.jpg" alt="">
+                                            </div>
+                                            <div class="item-name">
+                                                Clutches
+                                            </div>
+                                            <div class="cartItem-price">
+                                                $99
+                                            </div>
+                                            <div class="item-quantity">
+                                                <span class="minus">-</span>
+                                                <input name="Clutches" type="text" value="1" readonly>
+                                                <span class="plus">+</span>
+                                            </div>
+                                        </div> -->
+                                   
                                 </div>
-                                <div class="clear"></div>
-                                <div class="paymentBtn">
-                                    <button class="closeCartListBtn">Close</button>
-                                    <button class="checkOutBtn">Check out</button>
+                                <div class="cart-payment">
+                                    <div class="payment-information">
+                                        <div class="total-text">Total</div>
+                                        <div class="total-price">$0</div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="paymentBtn">
+                                        <button class="closeCartListBtn">Close</button>
+                                        <button name="checkout" type="submit" class="checkOutBtn">Check out</button>
+                                    </div>
+                                    <div class="clear"></div>
                                 </div>
-                                <div class="clear"></div>
-                            </div>
-                            
+                                
+                            </form>
                         </div>
                     </div> 
                 </div>

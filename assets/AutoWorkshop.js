@@ -119,43 +119,6 @@ listProductHtml.addEventListener('click', (event) => {
 var SteeringWheel = document.querySelector('.ticket-list .SteeringWheel')
 var Wheel = document.querySelector('.ticket-list .Wheel')
 var Clutches = document.querySelector('.ticket-list .Clutches')
-var maxQuantity = 10;
-const toggleSlot = () => {
-    carts.forEach(cart => {
-        if (cart.quantity >= maxQuantity) {
-            console.log('ok')
-            switch (cart.product_id) {
-                case 1:
-                    SteeringWheel.innerHTML = `<span class="sold-out">Unavailable</span>`;
-                    break;
-                case 2:
-                    SteeringWheel.innerHTML = `<span class="sold-out">Unavailable</span>`;
-                    break;
-                case 3:
-                    SteeringWheel.innerHTML = `<span class="sold-out">Unavailable</span>`;
-                    break;
-                default:
-                    break;
-            }
-        } else {
-            console.log("OK");
-            switch (cart.product_id) {
-                case 1:
-                    SteeringWheel.innerHTML = `<span class="quantity">10</span>`;
-                    break;
-                case 2:
-                    SteeringWheel.innerHTML = `<span class="quantity">10</span>`;
-                    break;
-                case 3:
-                    SteeringWheel.innerHTML = `<span class="quantity">10</span>`;
-                    break;
-                default:
-                    break;
-            }
-        }
-    })
-
-}
 const addToCart = (product_id) => {
     let positionThisProductInCart = carts.findIndex((value) => value.product_id == product_id)
     if (carts.length <= 0) {
@@ -177,7 +140,7 @@ const addToCart = (product_id) => {
     addCartToHTML();
     addCartToMeMory();
 }
-
+const nameProducts=['SteeringWheel','Wheel','Clutches']
 var totalPrice;
 const addCartToHTML = () => {
     let tempString = ""
@@ -203,7 +166,7 @@ const addCartToHTML = () => {
                 </div>
                 <div class="item-quantity" data-id="${info.id}">
                     <span class="minus">-</span>
-                    <span>${item.quantity}</span>
+                    <input name="${nameProducts[info.id-1]}" type="text" value="${item.quantity}" readonly>
                     <span class="plus">+</span>
                 </div>
             </div>`

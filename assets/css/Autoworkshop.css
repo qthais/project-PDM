@@ -222,9 +222,11 @@ html{
     cursor: pointer;
 }
 
-.cart-list .item-quantity span:nth-child(2){
-    background-color: transparent;
-
+.cart-list .item-quantity input{
+    width: 10%;
+    text-align: center;
+    border-radius: 40%;
+    border: none;
 }
 
 .cart-list h2{
