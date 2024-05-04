@@ -102,8 +102,8 @@ const initCart = () => {
         .then(data => {
             listProducts = data
             addData();
-            if(localStorage.getItem('cart')){
-                carts=JSON.parse(localStorage.getItem('cart'));
+            if (localStorage.getItem('cart')) {
+                carts = JSON.parse(localStorage.getItem('cart'));
                 addCartToHTML();
             }
         })
@@ -114,10 +114,48 @@ listProductHtml.addEventListener('click', (event) => {
     if (positionClick.classList.contains('accessories-buy')) {
         let product_id = positionClick.parentElement.dataset.id;
         addToCart(product_id)
-        
     }
 });
+var SteeringWheel = document.querySelector('.ticket-list .SteeringWheel')
+var Wheel = document.querySelector('.ticket-list .Wheel')
+var Clutches = document.querySelector('.ticket-list .Clutches')
+var maxQuantity = 10;
+const toggleSlot = () => {
+    carts.forEach(cart => {
+        if (cart.quantity >= maxQuantity) {
+            console.log('ok')
+            switch (cart.product_id) {
+                case 1:
+                    SteeringWheel.innerHTML = `<span class="sold-out">Unavailable</span>`;
+                    break;
+                case 2:
+                    SteeringWheel.innerHTML = `<span class="sold-out">Unavailable</span>`;
+                    break;
+                case 3:
+                    SteeringWheel.innerHTML = `<span class="sold-out">Unavailable</span>`;
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            console.log("OK");
+            switch (cart.product_id) {
+                case 1:
+                    SteeringWheel.innerHTML = `<span class="quantity">10</span>`;
+                    break;
+                case 2:
+                    SteeringWheel.innerHTML = `<span class="quantity">10</span>`;
+                    break;
+                case 3:
+                    SteeringWheel.innerHTML = `<span class="quantity">10</span>`;
+                    break;
+                default:
+                    break;
+            }
+        }
+    })
 
+}
 const addToCart = (product_id) => {
     let positionThisProductInCart = carts.findIndex((value) => value.product_id == product_id)
     if (carts.length <= 0) {
@@ -126,27 +164,29 @@ const addToCart = (product_id) => {
             quantity: 1
         }
         ]
-    } else if (positionThisProductInCart < 0) {
-        carts.push({
-            product_id: product_id,
-            quantity: 1
-        })
-    } else {
-        carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
-    }
-    console.log(carts)
+    } else
+        if (positionThisProductInCart < 0) {
+            carts.push({
+                product_id: product_id,
+                quantity: 1
+            })
+        } else {
+            carts[positionThisProductInCart].quantity = carts[positionThisProductInCart].quantity + 1;
+        }
+    console.log(carts);
     addCartToHTML();
     addCartToMeMory();
 }
 
+var totalPrice;
 const addCartToHTML = () => {
     let tempString = ""
-    let total=0;
-    const priceDiv=document.querySelector('.total-price')
-    var totalPrice=0;
-    if (carts.length > 0) {
+    let total = 0;
+    const priceDiv = document.querySelector('.total-price')
+    totalPrice = 0;
+    if (carts.length >= 0) {
         carts.forEach(item => {
-            total=total+item.quantity
+            total = total + item.quantity
             let positionProduct = listProducts.findIndex((value) => value.id == item.product_id)
             let info = listProducts[positionProduct]
             var htmlItem = `
@@ -168,38 +208,39 @@ const addCartToHTML = () => {
                 </div>
             </div>`
             tempString += htmlItem;
-            totalPrice+=info.price*item.quantity;
-            
+            totalPrice += info.price * item.quantity;
+
         })
-        priceDiv.innerText="$"+totalPrice;
-        cartQuantity.innerText=total
+        priceDiv.innerText = "$" + totalPrice;
+        cartQuantity.innerText = total
     }
     cartItemContainer.innerHTML = tempString;
 }
-cartItemContainer.addEventListener('click',(e)=>{
-    let positionClick=e.target;
-    if(positionClick.classList.contains('minus')||positionClick.classList.contains('plus')){
-        let product_id=positionClick.parentElement.dataset.id;
-        let type='minus';
-        if(positionClick.classList.contains('plus')){
-            type='plus';
+cartItemContainer.addEventListener('click', (e) => {
+    let positionClick = e.target;
+    if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
+        let product_id = positionClick.parentElement.dataset.id;
+        let type = 'minus';
+
+        if (positionClick.classList.contains('plus')) {
+            type = 'plus';
         }
-        changeQuantity(product_id,type);
+        changeQuantity(product_id, type);
     }
 })
-const changeQuantity=(product_id,type)=>{
-    let positionItemCart=carts.findIndex((value)=>value.product_id==product_id)
-    if(positionItemCart>=0){
-        switch (type){
+const changeQuantity = (product_id, type) => {
+    let positionItemCart = carts.findIndex((value) => value.product_id == product_id)
+    if (positionItemCart >= 0) {
+        switch (type) {
             case 'plus':
-                carts[positionItemCart].quantity+=1;
+                carts[positionItemCart].quantity += 1;
                 break;
             default:
-                let valueChange=carts[positionItemCart].quantity-=1;
-                if(valueChange>0){
-                    carts[positionItemCart].quantity=valueChange
-                }else{
-                    carts.splice(positionItemCart,1);
+                let valueChange = carts[positionItemCart].quantity -= 1;
+                if (valueChange > 0) {
+                    carts[positionItemCart].quantity = valueChange
+                } else {
+                    carts.splice(positionItemCart, 1);
                 }
                 break;
         }
@@ -207,10 +248,42 @@ const changeQuantity=(product_id,type)=>{
         addCartToHTML();
     }
 }
-const addCartToMeMory=()=>{
-    localStorage.setItem('cart',JSON.stringify(carts));
+const addCartToMeMory = () => {
+    localStorage.setItem('cart', JSON.stringify(carts));
 }
 initCart()
+//send data to php
+const checkOutBtn = document.querySelector('.checkOutBtn');
+
+checkOutBtn.addEventListener('click', () => {
+    // Assuming 'carts' array is available globally
+    // Convert 'carts' array to JSON format
+    const cartsJSON = JSON.stringify(carts);
+
+    // Make a POST request to index.php
+    fetch('/index.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: cartsJSON
+    })
+    .then(response => {
+        // Handle response
+        if (response.ok) {
+            // Handle successful response
+            console.log('Carts data sent successfully!');
+        } else {
+            // Handle error response
+            console.error('Error sending carts data:', response.status);
+        }
+    })
+    .catch(error => {
+        // Handle network error
+        console.error('Network error:', error);
+    });
+});
+
 //Doorstep service part
 var doorstepList = document.querySelector('.doorstep-slider .doorstep-list')
 var doorstepItem = document.querySelectorAll('.doorstep-list .doorstep-item')
