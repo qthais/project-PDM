@@ -145,6 +145,7 @@ const addToCart = (product_id) => {
 }
 const nameProducts=['SteeringWheel','Wheel','Clutches']
 var totalPrice;
+
 const addCartToHTML = () => {
     let tempString = ""
     let total = 0;
@@ -175,10 +176,10 @@ const addCartToHTML = () => {
             </div>`
             tempString += htmlItem;
             totalPrice += info.price * item.quantity;
-
         })
         priceDiv.innerText = "$" + totalPrice;
         cartQuantity.innerText = total
+        checkCartStatus();
     }
     cartItemContainer.innerHTML = tempString;
 }
@@ -221,33 +222,17 @@ initCart()
 //send data to php
 const checkOutBtn = document.querySelector('.checkOutBtn');
 
-checkOutBtn.addEventListener('click', () => {
-    // Assuming 'carts' array is available globally
-    // Convert 'carts' array to JSON format
-    const cartsJSON = JSON.stringify(carts);
-
-    // Make a POST request to index.php
-    fetch('/index.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: cartsJSON
-    })
-    .then(response => {
-        // Handle response
-        if (response.ok) {
-            // Handle successful response
-            console.log('Carts data sent successfully!');
-        } else {
-            // Handle error response
-            console.error('Error sending carts data:', response.status);
+checkCartStatus=()=>
+    {
+        if(totalPrice==0){
+            checkOutBtn.disabled=true;
+        }else{
+            checkOutBtn.disabled=false;
         }
-    })
-    .catch(error => {
-        // Handle network error
-        console.error('Network error:', error);
-    });
+    }
+checkOutBtn.addEventListener('click', () => {
+    console.log(totalPrice)
+    checkCartStatus()
 });
 
 //Doorstep service part

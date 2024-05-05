@@ -28,7 +28,6 @@ if (isset($_POST["checkout"])) {
 
     // Calculate total quantity
     $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
-
     // Insert total quantity into cart table
     $sqlIntoCart = "INSERT INTO cart(TotalQuantity) VALUES($total)";
     $resultIntoCart = mysqli_query($conn, $sqlIntoCart);
