@@ -68,7 +68,10 @@ var cartButton = document.querySelector('.ti-shopping-cart-full')
 var cartList = document.querySelector('#header .cart_login .cart-list')
 var closeCartBtn = document.querySelector('#header .closeCartListBtn')
 cartButton.addEventListener('click', () => addOpenBlock(cartList))
-closeCartBtn.addEventListener('click', () => removeOpenBlock(cartList))
+closeCartBtn.addEventListener('click', (event) =>{
+    event.preventDefault(); 
+    removeOpenBlock(cartList)
+} )
 //Dynamic Cart
 var cartItemContainer = document.querySelector('.cart-item-container')
 var listProductHtml = document.querySelector('.booking-section .productList')

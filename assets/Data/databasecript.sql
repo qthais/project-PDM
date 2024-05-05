@@ -1,5 +1,6 @@
 CREATE TABLE Cart (
-    CartID INT PRIMARY KEY AUTO_INCREMENT
+    CartID INT PRIMARY KEY AUTO_INCREMENT,
+    TotalQuantity INT
 );
 
 CREATE TABLE Payment (
@@ -51,18 +52,14 @@ CREATE TABLE AutoAccessories (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Description TEXT,
     Cost DECIMAL(10, 2),
-    Name VARCHAR(255),
-    CartID INT,
-    FOREIGN KEY (CartID) REFERENCES Cart(CartID)
+    Name VARCHAR(255)
 );
 
 CREATE TABLE DoorstepService (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Date DATE,
     Time TIME,
-    Name VARCHAR(255),
-    CartID INT,
-    FOREIGN KEY (CartID) REFERENCES Cart(CartID)
+    Name VARCHAR(255)
 );
 
 CREATE TABLE Mechanic (
@@ -78,38 +75,46 @@ CREATE TABLE Mechanic_DoorstepService (
     FOREIGN KEY (MechanicID) REFERENCES Mechanic(MechanicID),
     FOREIGN KEY (DoorstepServiceID) REFERENCES DoorstepService(ID)
 );
--- Inserting data into the Cart table
-INSERT INTO Cart VALUES (NULL); -- Assuming CartID is auto-incremented
+CREATE TABLE cart_accessories(
+    Cart_ID INT,
+    Accessories_ID INT,
+    Quantity INT,
+    CONSTRAINT cart_accessories_accessories FOREIGN KEY (Accessories_ID) REFERENCES AutoAccessories(ID),
+    CONSTRAINT cart_accessories_cart FOREIGN KEY (Cart_ID) REFERENCES Cart(CartID),
+    CONSTRAINT cart_accessories_unique UNIQUE (Cart_ID, Accessories_ID)
+);
+
+CREATE TABLE cart_doorstep(
+    Cart_ID INT,
+    Doorstep_ID INT,
+    CONSTRAINT cart_doorsteo_doorstep FOREIGN KEY (Doorstep_ID) REFERENCES DoorstepService(ID),
+    CONSTRAINT cart_doorstep_cart FOREIGN KEY (Cart_ID) REFERENCES Cart(CartID),
+    CONSTRAINT cart_doorstep_unique UNIQUE (Cart_ID, Doorstep_ID)
+);
+
 
 -- Inserting data into the Payment table
 INSERT INTO Payment (Amount, Date, Method) VALUES (50.00, '2024-05-04', 'Credit Card');
 
--- Inserting data into the Invoice table
-INSERT INTO Invoice (TotalCost, Date, Time, PaymentID, CartID) VALUES (50.00, '2024-05-04', '12:00:00', 1, 1);
 
--- Inserting data into the Customer table
-INSERT INTO Customer (Name, Contact, Phone, CartID, InvoiceID) VALUES ('John Doe', 'john@example.com', '+1234567890', 1, 1);
 
--- Inserting data into the Account table
-INSERT INTO Account (Type, Balance, Mail, Password, CustomerID) VALUES ('Regular', 100.00, 'john@example.com', 'password123', 1);
 
 -- Inserting data into the Appointment table
 INSERT INTO Appointment (DoorstepID, MechanicID, Address) VALUES (1, 1, '123 Main St');
 
 -- Inserting data into the AutoAccessories table
-INSERT INTO AutoAccessories (Name, Cost, Image, CartID)
+INSERT INTO AutoAccessories (Name, Cost)
 VALUES
-    ('Steering wheel', 99, './assets/css/img/Car_accessories/volang.jpg', NULL),
-    ('Wheel', 99, './assets/css/img/Car_accessories/banhxe.jpg', NULL),
-    ('Clutches', 19, './assets/css/img/Car_accessories/banhrang.jpg', NULL);
+    ('Steering Wheel', 99),
+    ('Wheel', 99),
+    ('Clutches', 19);
 
 
 -- Inserting data into the DoorstepService table
-INSERT INTO DoorstepService (Date, Time, Name, CartID) VALUES ('2024-05-05', '10:00:00', 'Oil Change', 1);
+INSERT INTO DoorstepService (Date, Time, Name) VALUES ('2024-05-05', '10:00:00', 'Oil Change');
 
 -- Inserting data into the Mechanic table
 INSERT INTO Mechanic (Name, Specialization) VALUES ('Mike Smith', 'Engine Repair');
 
 -- Inserting data into the Mechanic_DoorstepService table (linking Mechanic and DoorstepService)
 INSERT INTO Mechanic_DoorstepService (MechanicID, DoorstepServiceID) VALUES (1, 1);
-
