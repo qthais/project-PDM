@@ -28,27 +28,29 @@ if (isset($_POST["checkout"])) {
 
     // Calculate total quantity
     $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
-    // Insert total quantity into cart table
-    $sqlIntoCart = "INSERT INTO cart(TotalQuantity) VALUES($total)";
-    $resultIntoCart = mysqli_query($conn, $sqlIntoCart);
-    $cartID = mysqli_insert_id($conn);
-
-    // Insert products into cart_accessories table
-    $sqlIntoCartProduct = "INSERT INTO cart_accessories (Cart_ID, Accessories_ID, Quantity) VALUES ";
-    if ($quantityOfWheel > 0) {
-        $sqlIntoCartProduct .= "($cartID, 1, $quantityOfWheel),";
-    }
-    if ($quantityOfSteeringWheel > 0) {
-        $sqlIntoCartProduct .= "($cartID, 2, $quantityOfSteeringWheel),";
-    }
-    if ($quantityOfClutches > 0) {
-        $sqlIntoCartProduct .= "($cartID, 3, $quantityOfClutches),";
-    }
-    // Remove the last comma from the SQL query string
-    $sqlIntoCartProduct = rtrim($sqlIntoCartProduct, ",");
+    if($total!=0){
+        $sqlIntoCart = "INSERT INTO cart(TotalQuantity) VALUES($total)";
+        $resultIntoCart = mysqli_query($conn, $sqlIntoCart);
+        $cartID = mysqli_insert_id($conn);
     
-    // Execute the query
-    $resultIntoCartProduct = mysqli_query($conn, $sqlIntoCartProduct);
+        // Insert products into cart_accessories table
+        $sqlIntoCartProduct = "INSERT INTO cart_accessories (Cart_ID, Accessories_ID, Quantity) VALUES ";
+        if ($quantityOfWheel > 0) {
+            $sqlIntoCartProduct .= "($cartID, 1, $quantityOfWheel),";
+        }
+        if ($quantityOfSteeringWheel > 0) {
+            $sqlIntoCartProduct .= "($cartID, 2, $quantityOfSteeringWheel),";
+        }
+        if ($quantityOfClutches > 0) {
+            $sqlIntoCartProduct .= "($cartID, 3, $quantityOfClutches),";
+        }
+        // Remove the last comma from the SQL query string
+        $sqlIntoCartProduct = rtrim($sqlIntoCartProduct, ",");
+        
+        // Execute the query
+        $resultIntoCartProduct = mysqli_query($conn, $sqlIntoCartProduct);
+    }
+    // Insert total quantity into cart table
 }
 
 ?>

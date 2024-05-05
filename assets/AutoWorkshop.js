@@ -179,7 +179,7 @@ const addCartToHTML = () => {
         })
         priceDiv.innerText = "$" + totalPrice;
         cartQuantity.innerText = total
-        checkCartStatus();
+        checkCartEqualZero();
     }
     cartItemContainer.innerHTML = tempString;
 }
@@ -222,17 +222,21 @@ initCart()
 //send data to php
 const checkOutBtn = document.querySelector('.checkOutBtn');
 
-checkCartStatus=()=>
+checkCartEqualZero=()=>
     {
         if(totalPrice==0){
             checkOutBtn.disabled=true;
+            return true;
         }else{
             checkOutBtn.disabled=false;
+            return false;
         }
     }
 checkOutBtn.addEventListener('click', () => {
     console.log(totalPrice)
-    checkCartStatus()
+    if(checkCartEqualZero()){
+        alert("Your cart is empty!")
+    }
 });
 
 //Doorstep service part
