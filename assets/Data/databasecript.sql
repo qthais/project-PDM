@@ -6,8 +6,8 @@ CREATE TABLE Cart (
 CREATE TABLE Payment (
     PaymentID INT PRIMARY KEY AUTO_INCREMENT,
     Amount DECIMAL(10, 2),
-    Date DATE,
-    Method VARCHAR(255)
+    Date DATE NOT NULL,
+    Method VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Invoice (
@@ -36,8 +36,8 @@ CREATE TABLE Account (
     AccountID INT PRIMARY KEY AUTO_INCREMENT,
     Type VARCHAR(255),
     Balance DECIMAL(10, 2),
-    Mail VARCHAR(255),
-    Password VARCHAR(255),
+    Mail VARCHAR(255) UNIQUE,
+    Password VARCHAR(255) UNIQUE,
     CustomerID INT,
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
@@ -68,14 +68,15 @@ CREATE TABLE Mechanic (
     Specialization VARCHAR(255)
 );
 
-CREATE TABLE Mechanic_DoorstepService (
+CREATE TABLE MechanicDoorstepService (
     MechanicID INT,
     DoorstepServiceID INT,
     PRIMARY KEY (MechanicID, DoorstepServiceID),
     FOREIGN KEY (MechanicID) REFERENCES Mechanic(MechanicID),
     FOREIGN KEY (DoorstepServiceID) REFERENCES DoorstepService(ID)
 );
-CREATE TABLE cart_accessories(
+
+CREATE TABLE CartAccessories(
     Cart_ID INT,
     Accessories_ID INT,
     Quantity INT,
@@ -84,7 +85,7 @@ CREATE TABLE cart_accessories(
     CONSTRAINT cart_accessories_unique UNIQUE (Cart_ID, Accessories_ID)
 );
 
-CREATE TABLE cart_doorstep(
+CREATE TABLE CartDoorstep(
     Cart_ID INT,
     Doorstep_ID INT,
     CONSTRAINT cart_doorsteo_doorstep FOREIGN KEY (Doorstep_ID) REFERENCES DoorstepService(ID),
@@ -92,12 +93,8 @@ CREATE TABLE cart_doorstep(
     CONSTRAINT cart_doorstep_unique UNIQUE (Cart_ID, Doorstep_ID)
 );
 
-
 -- Inserting data into the Payment table
 INSERT INTO Payment (Amount, Date, Method) VALUES (50.00, '2024-05-04', 'Credit Card');
-
-
-
 
 -- Inserting data into the Appointment table
 INSERT INTO Appointment (DoorstepID, MechanicID, Address) VALUES (1, 1, '123 Main St');
@@ -109,7 +106,6 @@ VALUES
     ('Wheel', 99),
     ('Clutches', 19);
 
-
 -- Inserting data into the DoorstepService table
 INSERT INTO DoorstepService (Date, Time, Name) VALUES ('2024-05-05', '10:00:00', 'Oil Change');
 
@@ -117,4 +113,4 @@ INSERT INTO DoorstepService (Date, Time, Name) VALUES ('2024-05-05', '10:00:00',
 INSERT INTO Mechanic (Name, Specialization) VALUES ('Mike Smith', 'Engine Repair');
 
 -- Inserting data into the Mechanic_DoorstepService table (linking Mechanic and DoorstepService)
-INSERT INTO Mechanic_DoorstepService (MechanicID, DoorstepServiceID) VALUES (1, 1);
+INSERT INTO MechanicDoorstepService (MechanicID, DoorstepServiceID) VALUES (1, 1);
