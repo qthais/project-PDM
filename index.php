@@ -3,14 +3,9 @@
 include ("Connect.php");
 
 if (isset($_POST["checkout"])) {
-    echo "get ok";
     $quantityOfWheel = $_POST["Wheel"];
-    echo $quantityOfWheel . "<br>";
     $quantityOfSteeringWheel = $_POST["SteeringWheel"];
-    echo $quantityOfSteeringWheel . "<br>";
     $quantityOfClutches = $_POST["Clutches"];
-    echo $quantityOfClutches . "<br>";
-
     // Calculate total quantity
     $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
     if ($total != 0) {

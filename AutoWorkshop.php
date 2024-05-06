@@ -341,58 +341,6 @@
             </footer>
         </div>
     </div>
-    <div class="login-modal">
-        <div class="container" id="container">
-            <div class="form-container sign-up">
-                <form action="index.php" method="POST">
-                    <h1>Create Account</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icon"><i class="fa-brands ti-google"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands ti-facebook"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands ti-github"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands ti-linkedin"></i></a>
-                    </div>
-                    <span>or use your email for registeration</span>
-                    <input required type="text" placeholder="Name">
-                    <input required="email" placeholder="Email">
-                    <input required type="password" placeholder="Password">
-                    <button type="submit" name="sign-up">Sign Up</button>
-                </form>
-            </div>
-            <div class="form-container sign-in">
-                <form action="AutoWorkshop.php" method="POST">
-                    <h1>Sign In</h1>
-                    <div class="social-icons">
-                        <a href="#" class="icon"><i class="fa-brands ti-google"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands ti-facebook"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands ti-github"></i></a>
-                        <a href="#" class="icon"><i class="fa-brands ti-linkedin"></i></a>
-                    </div>
-                    <span>or use your email password</span>
-                    <input name="email" required="email" placeholder="Email">
-                    <input name="password" required type="password" placeholder="Password">
-                    <a href="#">Forget Your Password?</a>
-                    <button type="submit" name="sign-in">Sign In</button>
-                </form>
-            </div>
-            <div class="toggle-container">
-                <div class="toggle">
-                    <div class="toggle-panel toggle-left">
-                        <h1>Welcome Back!</h1>
-                        <p>Enter your personal details to use all of site features</p>
-                        <button class="hidden" id="login">Sign In</button>
-                    </div>
-                    <div class="toggle-panel toggle-right">
-                        <h1>Hello, Friend!</h1>
-                        <p>Register with your personal details to use all of site features</p>
-                        <button class="hidden" id="register">Sign Up</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </body>
 <script src="./assets/AutoWorkshop.js"></script>
 

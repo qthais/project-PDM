@@ -1,3 +1,4 @@
+
 //Service part
 const buyBtns = document.querySelectorAll('.booking-button')
 const modal = document.querySelector('.js-modal')
@@ -27,11 +28,7 @@ for (const buyBtn of buyBtns) {
 modalClose.addEventListener('click', () => removeOpenFlex(modal))
 stopProba(modalContainer, modal)
 //Login part
-const loginHeader = document.querySelector('.login-section')
-const loginModal = document.querySelector('.login-modal')
-const loginContainer = document.querySelector('.login-modal .container')
-loginHeader.addEventListener('click', () => addOpenFlex(loginModal))
-stopProba(loginContainer, loginModal)
+
 
 //Slider part
 var sliderHref = document.querySelector('#slider')
@@ -51,17 +48,7 @@ setInterval(function () {
         i = 0
     }
 }, 2500)
-const container = document.getElementById('container');
-const registerBtn = document.getElementById('register');
-const loginBtn = document.getElementById('login');
 
-registerBtn.addEventListener('click', () => {
-    container.classList.add("active");
-});
-
-loginBtn.addEventListener('click', () => {
-    container.classList.remove("active");
-});
 //CartListpart
 
 var cartButton = document.querySelector('.ti-shopping-cart-full')
