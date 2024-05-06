@@ -219,7 +219,7 @@ const addCartToMeMory = () => {
     localStorage.setItem('cart', JSON.stringify(carts));
 }
 initCart()
-//send data to php
+//end of dynamic
 const checkOutBtn = document.querySelector('.checkOutBtn');
 
 checkCartEqualZero=()=>
