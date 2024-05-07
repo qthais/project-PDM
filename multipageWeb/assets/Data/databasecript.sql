@@ -15,8 +15,6 @@ CREATE TABLE Customer (
 
 CREATE TABLE Account (
     AccountID INT PRIMARY KEY AUTO_INCREMENT,
-    Type VARCHAR(255),
-    Balance DECIMAL(10, 2),
     Mail VARCHAR(255) UNIQUE,
     Password VARCHAR(255) UNIQUE,
     CustomerID INT
