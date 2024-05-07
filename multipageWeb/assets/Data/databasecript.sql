@@ -27,31 +27,12 @@ CREATE TABLE Cart (
     TotalQuantity INT,
     AccountID INT,
     FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
-    CustomerID INT
-);
-
-CREATE TABLE Cart (
-    CartID INT PRIMARY KEY AUTO_INCREMENT,
-    TotalQuantity INT,
-    AccountID INT,
-    FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
 CREATE TABLE Appointment (
     DoorstepID INT,
     MechanicID INT,
     Address VARCHAR(255)
-);
-
-CREATE TABLE Invoice (
-    InvoiceID INT PRIMARY KEY AUTO_INCREMENT,
-    TotalCost DECIMAL(10, 2),
-    Date DATE,
-    Time TIME,
-    PaymentID INT,
-    CartID INT,
-    FOREIGN KEY (PaymentID) REFERENCES Payment(PaymentID),
-    FOREIGN KEY (CartID) REFERENCES Cart(CartID)
 );
 
 CREATE TABLE Invoice (
@@ -89,10 +70,8 @@ CREATE TABLE MechanicDoorstepService (
     MechanicID INT,
     DoorstepServiceID INT,
     PRIMARY KEY (MechanicID, DoorstepServiceID)
-    PRIMARY KEY (MechanicID, DoorstepServiceID)
 );
 
-CREATE TABLE CartAccessories (
 CREATE TABLE CartAccessories (
     Cart_ID INT,
     Accessories_ID INT,
@@ -103,10 +82,8 @@ CREATE TABLE CartAccessories (
 );
 
 CREATE TABLE CartDoorstep (
-CREATE TABLE CartDoorstep (
     Cart_ID INT,
     Doorstep_ID INT,
-    CONSTRAINT cart_doorstep_doorstep FOREIGN KEY (Doorstep_ID) REFERENCES DoorstepService(ID),
     CONSTRAINT cart_doorstep_doorstep FOREIGN KEY (Doorstep_ID) REFERENCES DoorstepService(ID),
     CONSTRAINT cart_doorstep_cart FOREIGN KEY (Cart_ID) REFERENCES Cart(CartID),
     CONSTRAINT cart_doorstep_unique UNIQUE (Cart_ID, Doorstep_ID)
