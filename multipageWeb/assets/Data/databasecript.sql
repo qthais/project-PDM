@@ -1,3 +1,6 @@
+DROP DATABASE test;
+create database test;
+use test;
 CREATE TABLE Payment (
     PaymentID INT PRIMARY KEY AUTO_INCREMENT,
     Amount DECIMAL(10, 2),
@@ -10,14 +13,14 @@ CREATE TABLE Customer (
     Name VARCHAR(255),
     Contact VARCHAR(255),
     Phone VARCHAR(255),
-    InvoiceID INT
+    InvoiceID INT,
+    AccountID INT
 );
 
 CREATE TABLE Account (
     AccountID INT PRIMARY KEY AUTO_INCREMENT,
     Mail VARCHAR(255) UNIQUE,
-    Password VARCHAR(255) UNIQUE,
-    CustomerID INT
+    Password VARCHAR(255) UNIQUE
 );
 
 CREATE TABLE Cart (
@@ -89,7 +92,7 @@ CREATE TABLE CartDoorstep (
 
 -- Adding Foreign Key Constraints
 ALTER TABLE Customer ADD FOREIGN KEY (InvoiceID) REFERENCES Invoice(InvoiceID);
-ALTER TABLE Account ADD FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID);
+ALTER TABLE Customer ADD FOREIGN KEY (AccountID) REFERENCES Account(AccountID);
 ALTER TABLE Appointment ADD FOREIGN KEY (DoorstepID) REFERENCES DoorstepService(ID);
 ALTER TABLE Appointment ADD FOREIGN KEY (MechanicID) REFERENCES Mechanic(MechanicID);
 ALTER TABLE MechanicDoorstepService ADD FOREIGN KEY (MechanicID) REFERENCES Mechanic(MechanicID);
