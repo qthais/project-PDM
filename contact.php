@@ -13,7 +13,7 @@
 <body>
     <div id="main">
         <?php
-        include("./header-footer/header.html");
+        include("./header.php");
         ?>
         <div id="content">
         <form class="contact-form text-white" action="">

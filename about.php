@@ -13,7 +13,7 @@
 <body>
     <div id="main">
         <?php
-        include("./header-footer/header.html");
+        include("./header.php");
         ?>
         <div id="content">
             <div id="about" class="content-section">

@@ -288,7 +288,7 @@ html{
 
 #slider{
     position: relative;
-    margin-top:52px;
+    margin-top:30px;
     padding-top: 50%;
     background:  no-repeat top center / cover ;
     background-image: url('./img/slider_1/Doorstep_service.jpg');

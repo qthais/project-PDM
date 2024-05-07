@@ -13,7 +13,7 @@
 <body>
     <div id="main">
         <?php
-        include("./header-footer/header.html");
+        include("./header.php");
         ?>
         <div id="slider">
             <div class="text-content">
@@ -38,4 +38,5 @@
 <script src="./assets/JS/home.js"></script>
 <script src="./assets/JS/common.js"></script>
 </html>
+
 

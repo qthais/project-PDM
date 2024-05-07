@@ -42,4 +42,4 @@ if (isset($_POST["checkout"])) {
 
 include("CloseConnect.php");
 
-?>
+

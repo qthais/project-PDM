@@ -1,6 +1,4 @@
-DROP DATABASE test;
-create database test;
-use test;
+
 CREATE TABLE Payment (
     PaymentID INT PRIMARY KEY AUTO_INCREMENT,
     Amount DECIMAL(10, 2),
@@ -19,8 +17,9 @@ CREATE TABLE Customer (
 
 CREATE TABLE Account (
     AccountID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(50),
     Mail VARCHAR(255) UNIQUE,
-    Password VARCHAR(255) UNIQUE
+    Password VARCHAR(255)
 );
 
 CREATE TABLE Cart (

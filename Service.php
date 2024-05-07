@@ -13,7 +13,7 @@
 <body>
     <div id="main">
         <?php
-        include("./header-footer/header.html");
+        include("./header.php");
         ?>
         <div class="doorstep-text">
                 <div class="doorstep-slider">
