@@ -1,5 +1,47 @@
 <?php
 session_start();
+include ("Connect.php");
+$AccountID=$_SESSION["account_ID"] ;
+echo "".$AccountID."";
+if (isset($_POST["checkout"])) {
+    $quantityOfWheel = $_POST["Wheel"];
+    $quantityOfSteeringWheel = $_POST["SteeringWheel"];
+    $quantityOfClutches = $_POST["Clutches"];
+    // Calculate total quantity
+    $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
+    if ($total != 0) {
+        $sqlIntoCart = "INSERT INTO cart(TotalQuantity,AccountID) VALUES($total,$AccountID)";
+        if ($conn->query($sqlIntoCart) === TRUE) {
+            $cartID = $conn->insert_id;
+
+            // Insert products into cart_accessories table
+            $sqlIntoCartProduct = "INSERT INTO CartAccessories (Cart_ID, Accessories_ID, Quantity) VALUES ";
+            if ($quantityOfWheel > 0) {
+                $sqlIntoCartProduct .= "($cartID, 1, $quantityOfWheel),";
+            }
+            if ($quantityOfSteeringWheel > 0) {
+                $sqlIntoCartProduct .= "($cartID, 2, $quantityOfSteeringWheel),";
+            }
+            if ($quantityOfClutches > 0) {
+                $sqlIntoCartProduct .= "($cartID, 3, $quantityOfClutches),";
+            }
+            // Remove the last comma from the SQL query string
+            $sqlIntoCartProduct = rtrim($sqlIntoCartProduct, ",");
+
+            // Execute the query
+            if ($conn->query($sqlIntoCartProduct) === TRUE) {
+                echo "New records created successfully";
+            } else {
+                echo "Error: " . $sqlIntoCartProduct . "<br>" . $conn->error;
+            }
+        } else {
+            echo "Error: " . $sqlIntoCart . "<br>" . $conn->error;
+        }
+    }
+    // Insert total quantity into cart table
+}
+
+include("CloseConnect.php");
 ?>
 <div id="header">
     <img src="./assets/css/img/Logo/Logo.jpg" alt="" class="logo">
@@ -30,7 +72,7 @@ session_start();
                 <div class="cart-list-container">
                     <div class="arrow-up"></div>
                     <h2>Shopping Cart</h2>
-                    <form action="index.php" method="post">
+                    <form action="<?php $_SERVER["PHP_SELF"] ?>" method="post">
 
                         <div class="cart-item-container">
                             <!-- <div class="cart-item">

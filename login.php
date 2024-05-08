@@ -7,11 +7,12 @@ if (isset($_POST["login"])) {
     $password = $_POST["password"];
     $_SESSION["email"] = $email;
 
-    $sql = "SELECT Name, Mail, Password FROM Account WHERE Mail='$email' AND Password='$password'";
+    $sql = "SELECT AccountID,Name, Mail, Password FROM Account WHERE Mail='$email' AND Password='$password'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc(); // Fetch the first row
         $_SESSION["username"] = $row["Name"]; // Store the username in session
+        $_SESSION["account_ID"] = $row["AccountID"];
         $_SESSION["login"] = true;
         header("Location: home.php"); // Redirect to header.php after successful login
         exit();

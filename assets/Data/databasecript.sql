@@ -50,7 +50,8 @@ CREATE TABLE AutoAccessories (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     Description TEXT,
     Cost DECIMAL(10, 2),
-    Name VARCHAR(255)
+    Name VARCHAR(255),
+    Image VARCHAR(100)
 );
 
 CREATE TABLE DoorstepService (
@@ -96,3 +97,8 @@ ALTER TABLE Appointment ADD FOREIGN KEY (DoorstepID) REFERENCES DoorstepService(
 ALTER TABLE Appointment ADD FOREIGN KEY (MechanicID) REFERENCES Mechanic(MechanicID);
 ALTER TABLE MechanicDoorstepService ADD FOREIGN KEY (MechanicID) REFERENCES Mechanic(MechanicID);
 ALTER TABLE MechanicDoorstepService ADD FOREIGN KEY (DoorstepServiceID) REFERENCES DoorstepService(ID);
+INSERT INTO AutoAccessories (Name, Cost, Image)
+VALUES
+    ('Steering wheel', 99, './assets/css/img/Car_accessories/volang.jpg'),
+    ('Wheel', 99, './assets/css/img/Car_accessories/banhxe.jpg'),
+    ('Clutches', 19, './assets/css/img/Car_accessories/banhrang.jpg');
