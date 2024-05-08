@@ -6,6 +6,5 @@ require_once 'connect.php';
 // Close the connection
 $conn->close();
 
-echo "Connection closed successfully!<br>";
 
 ?>

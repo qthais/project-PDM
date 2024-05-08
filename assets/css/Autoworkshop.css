@@ -118,10 +118,10 @@ html{
     cursor: pointer;
     height: 100%;
     line-height: 52px;
-    padding-left: 8px;
+    padding: 0 10px;
 }
 
-.login-section:hover{
+.cart_login .ti-user:hover{
     background-color: rgb(28, 86, 149);
 }
 

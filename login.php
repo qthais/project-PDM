@@ -1,5 +1,41 @@
 <?php
 session_start();
+include("Connect.php");
+
+if (isset($_POST["login"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $_SESSION["email"] = $email;
+
+    $sql = "SELECT Name, Mail, Password FROM Account WHERE Mail='$email' AND Password='$password'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc(); // Fetch the first row
+        $_SESSION["username"] = $row["Name"]; // Store the username in session
+        $_SESSION["login"] = true;
+        header("Location: home.php"); // Redirect to header.php after successful login
+        exit();
+    } else {
+        echo "<br> No account!";
+    }
+}
+if(isset($_POST ["sign-up"])){
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS); // Sanitize username
+    $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL); // Validate email on server-side
+
+    if ($email === false) { // Check if validation failed
+        echo "Invalid email address!";
+        exit(); // Stop script execution
+    }
+
+    $password = $_POST["password"];
+
+    $sql = "INSERT INTO Account(Name, Mail, Password) VALUES('$username','$email','$password')";
+    $result = $conn->query($sql);
+
+    echo "Hello {$username}";
+}
+include("CloseConnect.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +52,7 @@ session_start();
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-            <form action="./header.php" method="POST" class="sign-in-form">
+            <form action="./login.php" method="POST" class="sign-in-form">
                 <h2 class="title">Sign In</h2>
                 <div class="input-field">
                     <i class='bx bxs-user'></i>
@@ -44,7 +80,7 @@ session_start();
                     </a>
                 </div>
             </form>
-            <form class="sign-up-form" action="test.php" method="POST">
+            <form class="sign-up-form" action="./login.php" method="POST">
                 <h2 class="title">Sign Up</h2>
                 <div class="input-field">
                     <i class='bx bxs-user'></i>
@@ -102,50 +138,3 @@ session_start();
     <script src="./login.js"></script>
 </body>
 </html>
-<!-- <?php
-$host="localhost";
-$user="root";
-$pass="";
-$db="test";
-$conn=new mysqli($host,$user,$pass,$db);
-if($conn->connect_error){
-    echo "Failed to connect DB".$conn->connect_error;
-}else{
-    echo"Connected!";
-}
-
-if(isset($_POST ["login"])){
-    $email = $_POST ["email"];   
-    $password = $_POST ["password"];
-    $_SESSION["email"]=$email;
-    $sql="SELECT Name,Mail,Password FROM Account WHERE Mail='$email' AND Password='$password'";
-    $result = $conn->query($sql);
-    echo $result->num_rows;
-    while($row = $result->fetch_assoc()){
-        echo $row["Password"].$row["Name"]."<br>".$row["Mail"];
-    }
-    if($result->num_rows > 0){
-        $username= $result->fetch_assoc()["Name"];
-        $_SESSION["username"]=$username;
-    }else{
-        echo"<br> No account!";
-    }
-    $_SESSION["login"]=true;
-}
-if(isset($_POST ["sign-up"])){
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS); // Sanitize username
-    $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL); // Validate email on server-side
-
-    if ($email === false) { // Check if validation failed
-        echo "Invalid email address!";
-        exit(); // Stop script execution
-    }
-
-    $password = $_POST["password"];
-
-    $sql = "INSERT INTO Account(Name, Mail, Password) VALUES('$username','$email','$password')";
-    $result = $conn->query($sql);
-
-    echo "Hello {$username}";
-}
-?> -->

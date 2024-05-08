@@ -1,35 +1,5 @@
 <?php
 session_start();
-
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "test";
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    echo "Failed to connect DB" . $conn->connect_error;
-} else {
-    echo "Connected!";
-}
-
-if (isset($_POST["login"])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $_SESSION["email"] = $email;
-
-    $sql = "SELECT Name, Mail, Password FROM Account WHERE Mail='$email' AND Password='$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc(); // Fetch the first row
-        $_SESSION["username"] = $row["Name"]; // Store the username in session
-
-        $_SESSION["login"] = true;
-    } else {
-        echo "<br> No account!";
-    }
-}
 ?>
 <div id="header">
     <img src="./assets/css/img/Logo/Logo.jpg" alt="" class="logo">
@@ -45,14 +15,9 @@ if (isset($_POST["login"])) {
         <div class="login-section">
             <div class="ti-user"></div>
             <div class="login-button">
-                <?php 
+                <?php
                 if (isset($_SESSION["login"]) && $_SESSION["login"] === true) {
-                    echo "Hello ". $_SESSION["username"];
-                    // Check if not already on the home page before redirecting
-                    if ($_SERVER['REQUEST_URI'] !== '/home.php') {
-                        echo '<script>window.location.href = "/home.php";</script>';
-                        exit(); // Stop further execution
-                    }
+                    echo "Hello " . $_SESSION["username"];
                 } ?>
             </div>
         </div>

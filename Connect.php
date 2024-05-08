@@ -1,10 +1,8 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "workshop");
+$conn = new mysqli("localhost", "root", "", "test");
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "Connected successfully!!<br>";
-}
+} 
 ?>
