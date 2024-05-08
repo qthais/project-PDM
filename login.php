@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("Connect.php");
-
+$temp="Or sign in with social platforms";
 if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -16,7 +16,7 @@ if (isset($_POST["login"])) {
         header("Location: home.php"); // Redirect to header.php after successful login
         exit();
     } else {
-        echo "<br> No account!";
+        $temp= "Incorrect email or password!!";
     }
 }
 if(isset($_POST ["sign-up"])){
@@ -24,16 +24,19 @@ if(isset($_POST ["sign-up"])){
     $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL); // Validate email on server-side
 
     if ($email === false) { // Check if validation failed
-        echo "Invalid email address!";
-        exit(); // Stop script execution
+        $temp= "Invalid email address !";
+    }else{
+        $check_email_sql = "SELECT * FROM Account WHERE Mail='$email'";
+        $check_email_result = $conn->query($check_email_sql);
+        if ($check_email_result->num_rows > 0) {
+            $temp = "Email already exists!";
+        } else{
+            $password = $_POST["password"];
+            $sql = "INSERT INTO Account(Name, Mail, Password) VALUES('$username','$email','$password')";
+            $result = $conn->query($sql);
+            $temp="Create account successfully!";
+        }
     }
-
-    $password = $_POST["password"];
-
-    $sql = "INSERT INTO Account(Name, Mail, Password) VALUES('$username','$email','$password')";
-    $result = $conn->query($sql);
-
-    echo "Hello {$username}";
 }
 include("CloseConnect.php");
 ?>
@@ -63,7 +66,7 @@ include("CloseConnect.php");
                     <input required name="password" type="password" placeholder="Password">
                 </div>
                 <input required name="login" type="submit" value="Login" class="btn solid">
-                <p class="social-text">Or sign in with social platforms</p>
+                <p class="social-text"><?php echo $temp ?></p>
 
                 <div class="social-media">
                     <a href="#" class="social-icon">
@@ -95,7 +98,7 @@ include("CloseConnect.php");
                     <input required name="password" type="password" placeholder="Password">
                 </div>
                 <input required name="sign-up" type="submit" value="Sign Up" class="btn solid">
-                <p class="social-text">Or sign up with social platforms</p>
+                <p class="social-text"><?php echo $temp ?></p>
 
                 <div class="social-media">
                     <a href="#" class="social-icon">
