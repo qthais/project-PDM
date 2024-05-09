@@ -22,7 +22,7 @@
                             <div class="doorstep-img-wrap">
                                 <img src="./assets/css/img/Doorstep_services/oilchange.jpg" alt="">
                                 <div class="text-container">
-                                    <h2 class="text-heading">DOORSTEP SERVICES</h2>
+                                    <h2 class="text-heading">OIL CHANGE</h2>
                                     <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
                                     <button class="booking-button">Book now!</button>
                                 </div>
@@ -33,7 +33,7 @@
                             <div class="doorstep-img-wrap">
                                 <img src="./assets/css/img/Doorstep_services/batteryTesting.jpg" alt="">
                                 <div class="text-container">
-                                    <h2 class="text-heading">DOORSTEP SERVICES</h2>
+                                    <h2 class="text-heading">BATTERY TESTING</h2>
                                     <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
                                     <button class="booking-button">Book now!</button>
                                 </div>
@@ -44,7 +44,7 @@
                             <div class="doorstep-img-wrap">
                                 <img src="./assets/css/img/Doorstep_services/carwashing.jpg" alt="">
                                 <div class="text-container">
-                                    <h2 class="text-heading">DOORSTEP SERVICES</h2>
+                                    <h2 class="text-heading">CAR WASHING</h2>
                                     <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
                                     <button class="booking-button">Book now!</button>
                                 </div>
