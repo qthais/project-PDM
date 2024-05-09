@@ -1,3 +1,14 @@
+<?php
+session_start();
+include("Connect.php");
+$UserID=$_SESSION["User_ID"] ;
+$sql="SELECT * FROM Users WHERE UserID='{$UserID}' ";
+$result=$conn->query($sql);
+$row=$result->fetch_assoc();
+$username=$row["Name"];
+$userphone=$row["Phone"];
+$useremail=$row["Mail"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,26 +26,26 @@
         <?php
         include("./header.php");
         ?>
-       <div class="profile">
+       <div class="profile" class="default-margin">
         <div class="card">
             <div class="left-container">
                 <img src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__480.jpg" alt="Profile Image">
-                <h2 class="gradienttext">John Doe</h2>
+                <h2 class="gradienttext"><?php echo $username ?></h2>
             </div>
             <div class="right-container">
                 <h3 class="gradienttext">Profile Details</h3>
                 <table>
                     <tr>
                         <td>Name :</td>
-                        <td><input type="text" value="John Doe"> </td>
+                        <td><input type="text" value="<?php echo $username ?>"> </td>
                     </tr>
                     <tr>
                         <td>Mobile :</td>
-                        <td><input type="text" value="0364xxxxxx"></td>
+                        <td><input type="text" value="<?php echo $userphone ?>"></td>
                     </tr>
                     <tr>
                         <td>Email :</td>
-                        <td><input type="text" value="abc@gmail.com"></td>
+                        <td><input type="text" value="<?php echo $useremail ?>"></td>
                     </tr>
                 </table>
                 <div class="credit">Made with <span style="color:tomato;font-size:20px;">❤ </span>by<a

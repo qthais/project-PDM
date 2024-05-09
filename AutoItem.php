@@ -15,7 +15,7 @@
         <?php
         include("./header.php");
         ?>
-        <div id="content">
+        <div id="content" class="default-margin">
         <div id="tour" class="tour-section">
                 <div class="content-section">
                     <h2 class="section-heading text-white">CAR ACCESSORIES</h2>

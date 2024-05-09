@@ -15,7 +15,7 @@
         <?php
         include("./header.php");
         ?>
-        <div id="slider">
+        <div id="slider" class="default-margin">
             <div class="text-content">
                 <div class="text-heading">
                     <h2>So Convenient!</h2>

@@ -2,7 +2,6 @@
 session_start();
 include ("Connect.php");
 $UserID=$_SESSION["User_ID"] ;
-echo "".$UserID."";
 if (isset($_POST["checkout"])) {
     $quantityOfWheel = $_POST["Wheel"];
     $quantityOfSteeringWheel = $_POST["SteeringWheel"];
@@ -30,7 +29,6 @@ if (isset($_POST["checkout"])) {
 
             // Execute the query
             if ($conn->query($sqlIntoCartProduct) === TRUE) {
-                echo "New records created successfully";
             } else {
                 echo "Error: " . $sqlIntoCartProduct . "<br>" . $conn->error;
             }

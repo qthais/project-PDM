@@ -15,7 +15,7 @@
         <?php
         include("./header.php");
         ?>
-        <div class="doorstep-text">
+        <div class="doorstep-text" class="default-margin">
                 <div class="doorstep-slider">
                     <div class="doorstep-list">
                         <div class="doorstep-item">

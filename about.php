@@ -15,7 +15,7 @@
         <?php
         include("./header.php");
         ?>
-        <div id="content">
+        <div id="content" class="default-margin">
             <div id="about" class="content-section">
                 <h2 class="section-heading">My team</h2>
                 <div class="section-sub-heading">We love you guys</div>

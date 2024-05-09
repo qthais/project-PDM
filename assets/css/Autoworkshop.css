@@ -284,11 +284,13 @@ html{
     transition: all 0.3s;
 }
 
+.default-margin{
+    margin-top:52px;
+}
 
 
 #slider{
     position: relative;
-    margin-top:15px;
     padding-top: 50%;
     background:  no-repeat top center / cover ;
     background-image: url('./img/slider_1/Doorstep_service.jpg');
@@ -960,7 +962,7 @@ ul {
 
 /* profile css */
 .profile {
-    margin-top: 15px;
+    position: relative;
     font-family: Arial, sans-serif;
     padding: 20px;
     background: #180835;
