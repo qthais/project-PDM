@@ -3,13 +3,25 @@ session_start();
 include ("Connect.php");
 $UserID=$_SESSION["User_ID"] ;
 if (isset($_POST["checkout"])) {
-    $quantityOfWheel = $_POST["Wheel"];
-    $quantityOfSteeringWheel = $_POST["SteeringWheel"];
-    $quantityOfClutches = $_POST["Clutches"];
+    if(isset($_POST["Wheel"])){
+        $quantityOfWheel = $_POST["Wheel"];
+    }else{
+        $quantityOfWheel = 0;
+    }
+    if(isset($_POST["SteeringWheel"])){
+        $quantityOfSteeringWheel = $_POST["SteeringWheel"];
+    }else{
+        $quantityOfSteeringWheel = 0;
+    }
+    if(isset($_POST["Clutches"])){
+        $quantityOfClutches = $_POST["Clutches"];
+    }else{
+        $quantityOfClutches = 0;
+    }
     // Calculate total quantity
     $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
     if ($total != 0) {
-        $sqlIntoCart = "INSERT INTO cart(TotalQuantity,UserID) VALUES($total,1)";
+        $sqlIntoCart = "INSERT INTO cart(TotalQuantity,UserID) VALUES($total,$UserID)";
         if ($conn->query($sqlIntoCart) === TRUE) {
             $cartID = $conn->insert_id;
 

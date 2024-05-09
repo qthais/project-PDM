@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +25,7 @@
                                 <div class="text-container">
                                     <h2 class="text-heading">OIL CHANGE</h2>
                                     <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
-                                    <button class="booking-button">Book now!</button>
+                                    <button data-id="1" type="submit" name="booking" class="booking-button">Book now!</button>
                                 </div>
                             </div>
 
@@ -35,7 +36,7 @@
                                 <div class="text-container">
                                     <h2 class="text-heading">BATTERY TESTING</h2>
                                     <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
-                                    <button class="booking-button">Book now!</button>
+                                    <button data-id="2" type="submit" name="booking" class="booking-button">Book now!</button>
                                 </div>
                             </div>
 
@@ -46,7 +47,7 @@
                                 <div class="text-container">
                                     <h2 class="text-heading">CAR WASHING</h2>
                                     <div class="text-sub-heading">Stay at home and have us fixed every thing!</div>
-                                    <button class="booking-button">Book now!</button>
+                                    <button data-id="3" type="submit" name="booking" class="booking-button">Book now!</button>
                                 </div>
                             </div>
 
@@ -70,7 +71,7 @@
         ?>
     </div>
     <?php
-    include("./header-footer/serviceModal.html");
+    include("serviceModal.php");
     ?>
 </body>
 <script src="./assets/JS/common.js"></script>
