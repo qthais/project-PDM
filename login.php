@@ -7,12 +7,12 @@ if (isset($_POST["login"])) {
     $password = $_POST["password"];
     $_SESSION["email"] = $email;
 
-    $sql = "SELECT AccountID,Name, Mail, Password FROM Account WHERE Mail='$email' AND Password='$password'";
+    $sql = "SELECT UserID,Name, Mail, Password FROM Users WHERE Mail='$email' AND Password='$password'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc(); // Fetch the first row
         $_SESSION["username"] = $row["Name"]; // Store the username in session
-        $_SESSION["account_ID"] = $row["AccountID"];
+        $_SESSION["User_ID"] = $row["UserID"];
         $_SESSION["login"] = true;
         header("Location: home.php"); // Redirect to header.php after successful login
         exit();
@@ -23,19 +23,19 @@ if (isset($_POST["login"])) {
 if(isset($_POST ["sign-up"])){
     $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS); // Sanitize username
     $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL); // Validate email on server-side
-
+    $phone = $_POST["phone"];
     if ($email === false) { // Check if validation failed
         $temp= "Invalid email address !";
     }else{
-        $check_email_sql = "SELECT * FROM Account WHERE Mail='$email'";
+        $check_email_sql = "SELECT * FROM Users WHERE Mail='$email'";
         $check_email_result = $conn->query($check_email_sql);
         if ($check_email_result->num_rows > 0) {
-            $temp = "Email already exists!";
+            $temp = "Email has already existed!";
         } else{
             $password = $_POST["password"];
-            $sql = "INSERT INTO Account(Name, Mail, Password) VALUES('$username','$email','$password')";
+            $sql = "INSERT INTO Users(Name, Mail, Password,Phone) VALUES('$username','$email','$password','$phone')";
             $result = $conn->query($sql);
-            $temp="Create account successfully!";
+            $temp="Create Users successfully!";
         }
     }
 }
@@ -49,7 +49,7 @@ include("CloseConnect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignIn__SignUp__Landing__Page</title>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
 
 </head>
 <body>
@@ -98,6 +98,10 @@ include("CloseConnect.php");
                     <i class='bx bxs-lock-alt'></i>
                     <input required name="password" type="password" placeholder="Password">
                 </div>
+                <div class="input-field">
+                    <i class='bx bxs-phone'></i>
+                    <input required name="phone" type="tel" pattern="[0-9]{10}" placeholder="Phone">
+                </div>
                 <input required name="sign-up" type="submit" value="Sign Up" class="btn solid">
                 <p class="social-text"><?php echo $temp ?></p>
 
@@ -139,6 +143,6 @@ include("CloseConnect.php");
             </div>
         </div>
     </div>
-    <script src="./login.js"></script>
+    <script src="./assets/JS/login.js"></script>
 </body>
 </html>

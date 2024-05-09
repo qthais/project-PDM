@@ -1,8 +1,8 @@
 <?php
 session_start();
 include ("Connect.php");
-$AccountID=$_SESSION["account_ID"] ;
-echo "".$AccountID."";
+$UserID=$_SESSION["User_ID"] ;
+echo "".$UserID."";
 if (isset($_POST["checkout"])) {
     $quantityOfWheel = $_POST["Wheel"];
     $quantityOfSteeringWheel = $_POST["SteeringWheel"];
@@ -10,12 +10,12 @@ if (isset($_POST["checkout"])) {
     // Calculate total quantity
     $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
     if ($total != 0) {
-        $sqlIntoCart = "INSERT INTO cart(TotalQuantity,AccountID) VALUES($total,$AccountID)";
+        $sqlIntoCart = "INSERT INTO cart(TotalQuantity,UserID) VALUES($total,1)";
         if ($conn->query($sqlIntoCart) === TRUE) {
             $cartID = $conn->insert_id;
 
             // Insert products into cart_accessories table
-            $sqlIntoCartProduct = "INSERT INTO CartAccessories (Cart_ID, Accessories_ID, Quantity) VALUES ";
+            $sqlIntoCartProduct = "INSERT INTO CartautoAccessories (CartID, AutoaccessoryID, Quantity) VALUES ";
             if ($quantityOfWheel > 0) {
                 $sqlIntoCartProduct .= "($cartID, 1, $quantityOfWheel),";
             }
@@ -55,7 +55,7 @@ include("CloseConnect.php");
     </ul>
     <div class="cart_login">
         <div class="login-section">
-            <div class="ti-user"></div>
+            <div class="ti-user" onclick="navigateTo('/profile.php')"></div>
             <div class="login-button">
                 <?php
                 if (isset($_SESSION["login"]) && $_SESSION["login"] === true) {

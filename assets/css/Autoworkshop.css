@@ -288,7 +288,7 @@ html{
 
 #slider{
     position: relative;
-    margin-top:30px;
+    margin-top:15px;
     padding-top: 50%;
     background:  no-repeat top center / cover ;
     background-image: url('./img/slider_1/Doorstep_service.jpg');
@@ -957,3 +957,162 @@ ul {
         transform: translateX(0);
     }
 }
+
+/* profile css */
+.profile {
+    margin-top: 15px;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #180835;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile .card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    width: 70%;
+    height: 480px;
+    background: #12c2e9;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.profile .left-container {
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #434343, #000000);
+    background: linear-gradient(to right, #434343, #000000);
+    flex: 1;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 430px;
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile .right-container {
+    background: #000000;
+    background: -webkit-linear-gradient(to left, #434343, #000000);
+    background: linear-gradient(to left, #434343, #000000);
+    flex: 1;
+    max-width: 70%;
+    height: 430px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (max-width: 860px) {
+    .profile .card {
+        flex-direction: column;
+        margin: 10px;
+        height: auto;
+        width: 90%;
+    }
+
+    .profile .left-container {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .profile .card {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .profile .left-container {
+        flex: 1;
+        max-width: 100%;
+    }
+}
+
+.profile img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile .gradienttext {
+    background-image: linear-gradient(to right, #ee00ff 0%, #fbff00 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+.profile p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: aliceblue
+}
+
+.profile table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 280px;
+    border-collapse: collapse;
+}
+
+.profile td {
+
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+
+.profile td:first-child {
+    font-weight: bold;
+}
+
+.profile .credit a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+}
+
+.profile .credit {
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.profile input{
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+/* end profile css */
