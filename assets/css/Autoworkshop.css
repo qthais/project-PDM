@@ -1094,12 +1094,7 @@ footer .bottom-details .bottom_text{
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     width: 70%;
     height: 480px;
-    background: #12c2e9;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: rgba(211, 211, 211, 1);
 }
 
 .profile .left-container {
@@ -1178,7 +1173,7 @@ footer .bottom-details .bottom_text{
 }
 
 .profile .gradienttext {
-    background-image: linear-gradient(to right, #ee00ff 0%, #fbff00 100%);
+    background-image: linear-gradient(to right, #fff 0%, #fff 100%);
     color: transparent;
     -webkit-background-clip: text;
 }
