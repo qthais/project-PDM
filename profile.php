@@ -81,6 +81,7 @@ $useremail = $row["Mail"];
     include("serviceModal.php");
     ?>
 </body>
+<script src="./assets/JS/profile.js"></script>
 <script src="./assets/JS/common.js"></script>
 
 </html>
