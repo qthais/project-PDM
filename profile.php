@@ -10,6 +10,7 @@ $row = $result->fetch_assoc();
 $username = $row["Name"];
 $userphone = $row["Phone"];
 $useremail = $row["Mail"];
+include("CloseConnect.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@ $useremail = $row["Mail"];
         <div class="profile" class="default-margin">
             <div class="card">
                 <div class="left-container">
-                    <img src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358__480.jpg" alt="Profile Image">
+                    <img src="./assets/css/imagesLogin/avt.png" alt="Profile Image">
                     <h2 class="gradienttext"><?php echo $username ?></h2>
                     <div class="appointment">
                         <h4>Your appointment with our staff</h4>
