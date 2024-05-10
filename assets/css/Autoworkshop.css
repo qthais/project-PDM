@@ -569,7 +569,10 @@ html{
 }
 
 .send-button:hover,
-.cart-list-container .checkOutBtn:hover{
+.cart-list-container .checkOutBtn:hover,
+.profile .appointment-item button:hover,
+.profile .logout:hover
+{
     background: #FFF;
     color: #00bcd4;
 }
@@ -1223,5 +1226,38 @@ footer .bottom-details .bottom_text{
     border: none;
     color: #fff;
     font-size: 16px;
+}
+.profile .appointment{
+    color: #fff;
+    width: 100%;
+    overflow: auto;
+}
+.profile .appointment-item{
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    overflow: auto;
+    margin: 5px 0;
+}
+.profile .appointment-item button{
+    height: 20px;
+    background-color: #00bcd4;
+    cursor: pointer;
+    border: 2px solid #00bcd4;
+    transition: 0.3s;
+    color: #fff;
+}
+.profile .logout{
+    float: right;
+    color: #fff;
+    font-size: 50px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #00bcd4;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    border: 2px solid #00bcd4;
+    transition: 0.3s;
 }
 /* end profile css */

@@ -1,11 +1,9 @@
 <?php
-// Check if the "ServiceID" cookie is set
-if(isset($_COOKIE["ServiceID"])) {
-    // Retrieve the value of the "ServiceID" cookie
-    $serviceID = $_COOKIE["ServiceID"];
-    // Echo the value of the "ServiceID" cookie
-    echo "Value of ServiceID cookie: " . $serviceID;
-} else {
-    // If the "ServiceID" cookie is not set
-    echo "ServiceID cookie is not set.";
+session_start();
+include("Connect.php");
+$UserID = $_SESSION["User_ID"];
+$doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
+$doorstepResult = $conn->query($doorstepSql);
+while ($temp = $doorstepResult->fetch_assoc()) {
+    echo $temp['Date'];
 }
