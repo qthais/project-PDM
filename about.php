@@ -54,7 +54,7 @@
         ?>
     </div>
     <?php
-    include("./header-footer/serviceModal.html");
+        include("serviceModal.php");
     ?>
 </body>
 <script src="./assets/JS/common.js"></script>
