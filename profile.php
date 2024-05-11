@@ -35,7 +35,7 @@ include("CloseConnect.php")
                     <img src="./assets/css/imagesLogin/avt.png" alt="Profile Image">
                     <h2 class="gradienttext"><?php echo $username ?></h2>
                     <div class="appointment">
-                        <h4>Your appointment with our staff</h4>
+                        <h4>Service appointments</h4>
                         <div class="appointment-container">
                             <?php
                             while ($temp = $doorstepResult->fetch_assoc()) {

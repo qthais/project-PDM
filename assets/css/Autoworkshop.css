@@ -1175,7 +1175,7 @@ footer .bottom-details .bottom_text{
 }
 
 .profile h4 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .profile .gradienttext {
     background-image: linear-gradient(to right, #00bcd4 0%, #00bcd4 100%);
@@ -1232,7 +1232,7 @@ footer .bottom-details .bottom_text{
     display: grid;
     grid-template-columns: 40% 30% 30%;
     overflow: auto;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 .profile .appointment-item button{
     height: 20px;

@@ -50,8 +50,8 @@ include("CloseConnect.php");
                 </button>
             </div>
         </form>
-        <footer class="modal-footer">
+        <div class="modal-footer">
             <p class="modal-help">Need <a href="">help?</a></p>
-        </footer>
+        </div>
     </div>
 </div>
