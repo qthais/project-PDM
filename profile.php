@@ -1,6 +1,17 @@
 <?php
 session_start();
 include("Connect.php");
+if(isset($_POST)) {
+    $data = file_get_contents("php://input");
+    $service = json_decode($data, true);
+    if(isset($service['date'], $service['address'])) {
+        $date = $service['date'];
+        $address = $service['address'];
+        $deleteSql = "DELETE FROM userdoorstepservice WHERE Address='{$address}' AND Date='{$date}'";
+        $conn->query($deleteSql);
+    }
+}
+
 $UserID = $_SESSION["User_ID"];
 $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
 $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
@@ -42,8 +53,8 @@ include("CloseConnect.php")
                                 echo
                                 "
                                 <div class=\"appointment-item\">
-                                <span>{$temp['Date']}</span>
-                                <span>{$temp['Address']}</span>
+                                <span class='date'>{$temp['Date']}</span>
+                                <span class='address'>{$temp['Address']}</span>
                                 <button>Cancel</button>
                                 </div>
                                 ";
