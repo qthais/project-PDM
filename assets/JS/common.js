@@ -190,6 +190,7 @@ checkCartEqualZero=()=>
         }
     }
 checkOutBtn.addEventListener('click', () => {
+    localStorage.clear();
     console.log(totalPrice)
     if(checkCartEqualZero()){
         alert("Your cart is empty!")
