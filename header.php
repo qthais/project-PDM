@@ -1,6 +1,9 @@
 <?php
 session_start();
 include ("Connect.php");
+if(!isset($_SESSION["User_ID"])){
+    header('Location: login.php');
+}
 $UserID=$_SESSION["User_ID"] ;
 if (isset($_POST["checkout"])) {
     if(isset($_POST["Wheel"])){
