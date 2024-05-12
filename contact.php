@@ -15,7 +15,7 @@
         <?php
         include("./header.php");
         ?>
-        <div id="content">
+        <div id="content" class="default-margin">
         <form class="contact-form text-white" action="">
                 <div id="contact" class="contact-section">
                     <h2 class="section-heading">CONTACT US</h2>
