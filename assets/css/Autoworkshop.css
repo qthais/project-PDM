@@ -22,6 +22,7 @@ html{
 }
 
 #header{
+    overflow: hidden;
     height: 52px;
     background-color:  #000;
     position: fixed;
@@ -288,6 +289,29 @@ html{
     margin-top:52px;
 }
 
+@media screen and (max-width: 1000px) {
+    #header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #nav {
+        display: none; /* Hide the navigation by default */
+        flex-direction: column;
+    }
+
+    #nav.open {
+        display: flex; /* Show the navigation when open */
+    }
+
+    #nav li {
+        margin: 10px 0; /* Adjust spacing between items */
+    }
+
+    .logo {
+        margin-bottom: 20px; /* Adjust spacing between logo and navigation */
+    }
+}
 
 #slider{
     position: relative;
