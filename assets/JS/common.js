@@ -25,11 +25,20 @@ var cartButton = document.querySelector('.ti-shopping-cart-full')
 var cartList = document.querySelector('#header .cart_login .cart-list')
 var closeCartBtn = document.querySelector('#header .closeCartListBtn')
 cartButton.addEventListener('click', () => addOpenBlock(cartList))
-closeCartBtn.addEventListener('click', (event) =>{
-    event.preventDefault(); 
+closeCartBtn.addEventListener('click', (event) => {
+    event.preventDefault();
     removeOpenBlock(cartList)
-} )
+})
 //Dynamic Cart
+checkCartEqualZero = () => {
+    if (totalPrice == 0 || totalPrice==undefined) {
+        checkOutBtn.disabled = true;
+        return true;
+    } else {
+        checkOutBtn.disabled = false;
+        return false;
+    }
+}
 var cartItemContainer = document.querySelector('.cart-item-container')
 var listProductHtml = document.querySelector('.booking-section .productList')
 let listProducts = []
@@ -100,7 +109,7 @@ const addToCart = (product_id) => {
     addCartToHTML();
     addCartToMeMory();
 }
-const nameProducts=['SteeringWheel','Wheel','Clutches']
+const nameProducts = ['SteeringWheel', 'Wheel', 'Clutches']
 var totalPrice;
 
 const addCartToHTML = () => {
@@ -127,7 +136,7 @@ const addCartToHTML = () => {
                 </div>
                 <div class="item-quantity" data-id="${info.id}">
                     <span class="minus">-</span>
-                    <input name="${nameProducts[info.id-1]}" type="text" value="${item.quantity}" readonly>
+                    <input name="${nameProducts[info.id - 1]}" type="text" value="${item.quantity}" readonly>
                     <span class="plus">+</span>
                 </div>
             </div>`
@@ -179,20 +188,10 @@ initCart()
 //end of dynamic
 const checkOutBtn = document.querySelector('.checkOutBtn');
 
-checkCartEqualZero=()=>
-    {
-        if(totalPrice==0){
-            checkOutBtn.disabled=true;
-            return true;
-        }else{
-            checkOutBtn.disabled=false;
-            return false;
-        }
-    }
 checkOutBtn.addEventListener('click', () => {
     localStorage.clear();
     console.log(totalPrice)
-    if(checkCartEqualZero()){
+    if (checkCartEqualZero()) {
         alert("Your cart is empty!")
     }
 });
