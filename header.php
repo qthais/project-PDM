@@ -1,24 +1,24 @@
 <?php
 session_start();
-include ("Connect.php");
-if(!isset($_SESSION["User_ID"])){
+include("Connect.php");
+if (!isset($_SESSION["User_ID"])) {
     header('Location: login.php');
 }
-$UserID=$_SESSION["User_ID"] ;
+$UserID = $_SESSION["User_ID"];
 if (isset($_POST["checkout"])) {
-    if(isset($_POST["Wheel"])){
+    if (isset($_POST["Wheel"])) {
         $quantityOfWheel = $_POST["Wheel"];
-    }else{
+    } else {
         $quantityOfWheel = 0;
     }
-    if(isset($_POST["SteeringWheel"])){
+    if (isset($_POST["SteeringWheel"])) {
         $quantityOfSteeringWheel = $_POST["SteeringWheel"];
-    }else{
+    } else {
         $quantityOfSteeringWheel = 0;
     }
-    if(isset($_POST["Clutches"])){
+    if (isset($_POST["Clutches"])) {
         $quantityOfClutches = $_POST["Clutches"];
-    }else{
+    } else {
         $quantityOfClutches = 0;
     }
     // Calculate total quantity
