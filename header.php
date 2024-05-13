@@ -44,6 +44,7 @@ if (isset($_POST["checkout"])) {
 
             // Execute the query
             if ($conn->query($sqlIntoCartProduct) === TRUE) {
+                header("Location: /Payment/index.html");
             } else {
                 echo "Error: " . $sqlIntoCartProduct . "<br>" . $conn->error;
             }
