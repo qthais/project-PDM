@@ -2,6 +2,24 @@
 const modal = document.querySelector('.js-modal')
 const modalContainer = document.querySelector('.js-modal-container')
 const modalClose = document.querySelector('.js-modal-close')
+
+function createCookie(name, value, days) {
+    let expires;
+
+    // Check if the 'days' parameter is provided
+    if (days) {
+        // If 'days' is provided, calculate the expiration date
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else {
+        // If 'days' is not provided, set the expiration to an empty string
+        expires = "";
+    }
+
+    // Construct the cookie string and set it
+    document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+}
 function addOpenFlex(element) {
     element.classList.add('openFlex')
 }
@@ -189,7 +207,7 @@ initCart()
 const checkOutBtn = document.querySelector('.checkOutBtn');
 
 checkOutBtn.addEventListener('click', () => {
-    localStorage.clear();
+    createCookie('totalPrice',totalPrice,1)
     console.log(totalPrice)
     if (checkCartEqualZero()) {
         alert("Your cart is empty!")

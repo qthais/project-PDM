@@ -8,23 +8,6 @@ for (const buyBtn of buyBtns) {
     })
 }
 
-function createCookie(name, value, days) {
-    let expires;
-
-    // Check if the 'days' parameter is provided
-    if (days) {
-        // If 'days' is provided, calculate the expiration date
-        let date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-    } else {
-        // If 'days' is not provided, set the expiration to an empty string
-        expires = "";
-    }
-
-    // Construct the cookie string and set it
-    document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
-}
 modalClose.addEventListener('click', () => removeOpenFlex(modal))
 stopProba(modalContainer, modal)
 

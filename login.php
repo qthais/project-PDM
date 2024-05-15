@@ -2,6 +2,7 @@
 session_start();
 include("Connect.php");
 $temp = "Or sign in with social platforms";
+$status="success";
 if (isset($_POST["login"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -17,6 +18,7 @@ if (isset($_POST["login"])) {
         header("Location: home.php"); // Redirect to header.php after successful login
         exit();
     } else {
+        $status="error";
         $temp = "Incorrect email or password!!";
     }
 }
@@ -25,16 +27,19 @@ if (isset($_POST["sign-up"])) {
     $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL); // Validate email on server-side
     $phone = $_POST["phone"];
     if ($email === false) { // Check if validation failed
+        $status="error";
         $temp = "Invalid email address !";
     } else {
         $check_email_sql = "SELECT * FROM Users WHERE Mail='$email'";
         $check_email_result = $conn->query($check_email_sql);
         if ($check_email_result->num_rows > 0) {
             $temp = "Email has already existed!";
+            $status="warning";
         } else {
             $password = $_POST["password"];
             $sql = "INSERT INTO Users(Name, Mail, Password,Phone) VALUES('$username','$email','$password','$phone')";
             $result = $conn->query($sql);
+            $status="success";
             $temp = "Create Users successfully!";
         }
     }
@@ -60,6 +65,18 @@ include("CloseConnect.php");
             <div class="signin-signup">
                 <form action="./login.php" method="POST" class="sign-in-form">
                     <h2 class="title">Sign In</h2>
+                    <?php
+                    if (isset($_POST["login"])||isset($_POST["sign-up"])){
+                        echo
+                        "
+                        <div class=\"{$status}-msg\">
+                            <i class=\"fa fa-check\"></i>
+                            {$temp}
+                        </div>
+                        "
+                        ;
+                    } 
+                    ?>
                     <div class="input-field">
                         <i class='bx bxs-user'></i>
                         <input required name="email" type="email" placeholder="Email">
@@ -69,7 +86,7 @@ include("CloseConnect.php");
                         <input required name="password" type="password" placeholder="Password">
                     </div>
                     <input required name="login" type="submit" value="Login" class="btn solid">
-                    <p class="social-text"><?php echo $temp ?></p>
+                    <p class="social-text">Or sign in with social platforms</p>
 
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -105,7 +122,7 @@ include("CloseConnect.php");
                         <input required name="phone" type="tel" pattern="[0-9]{10}" placeholder="Phone">
                     </div>
                     <input required name="sign-up" type="submit" value="Sign Up" class="btn solid">
-                    <p class="social-text"><?php echo $temp ?></p>
+                    <p class="social-text">Or sign in with social platforms</p>
 
                     <div class="social-media">
                         <a href="#" class="social-icon">
