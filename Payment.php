@@ -1,16 +1,28 @@
 <?php
+session_start();
+include("Connect.php");
 $totalPrice = null;
 if (isset($_COOKIE['totalPrice'])) {
     $totalPrice = $_COOKIE['totalPrice'];
 }
 if (isset($_POST["paymentBtn"])) {
-    $cartID=$_SESSION['cartID'];
-    $cardHolder=$_POST[""]
-    $sql="INSERT INTO Payment (CartID, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
-    VALUES (123, '2024-05-16 12:34:56', '1234567890123456', 'John Doe', '2025', '12', '123');";
+    $cartID = $_SESSION['cartID'];
+    $cardHolder = $_POST["cardHolder"];
+    $cardNumber = $_POST["cardNumber"];
+    $expYear = $_POST['expYear'];
+    $expMonth = $_POST['expMonth'];
+    $CVV = $_POST['cvv'];
+    $localDateTime = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO Payment (CartID, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("issssss", $cartID, $localDateTime, $cardNumber, $cardHolder, $expYear, $expMonth, $CVV);
+    $stmt->execute(); // Execute the prepared statement
+    $stmt->close(); // Close the statement after execution
     header("Location: home.php");
 }
-$localDateTime = date('Y-m-d H:i:s');
+include("CloseConnect.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +77,7 @@ $localDateTime = date('Y-m-d H:i:s');
                         </div>
                         <div class="input-box">
                             <span>Card Owner:</span>
-                            <input name="cardHolder" type="text" placeholder="Ambatukam">
+                            <input name="cardHolder" type="text" placeholder="BA TU KHAN">
                         </div>
                         <div class="input-box">
                             <span>Card Number:</span>
