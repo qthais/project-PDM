@@ -29,8 +29,12 @@ CREATE TABLE Invoice (
 );
 CREATE TABLE Payment (
     ID INT PRIMARY KEY AUTO_INCREMENT,
-    Method TEXT,
-    InvoiceId INT
+    InvoiceId INT,
+    PaymentDate DATE,
+    CardNumber VARCHAR(16), -- Store securely
+    CardHolderName VARCHAR(100),
+    ExpirationDate DATE,
+    CVV VARCHAR(4)
 );
 
 CREATE TABLE UserDoorstepService (
@@ -47,6 +51,12 @@ CREATE TABLE CartAutoAccessories (
     Quantity INT,
     FOREIGN KEY (CartID) REFERENCES Cart(CartID),
     FOREIGN KEY (AutoAccessoryID) REFERENCES AutoAccessories(ID)
+);
+CREATE TABLE Contact (
+    ContactID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    Message TEXT,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 ALTER TABLE Cart
 ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);

@@ -16,7 +16,7 @@
         include("./header.php");
         ?>
         <div id="content" class="default-margin">
-        <form class="contact-form text-white" action="">
+            <div class="contact-form text-white" action="">
                 <div id="contact" class="contact-section">
                     <h2 class="section-heading">CONTACT US</h2>
                     <div class="section-sub-heading">Car service encompasses essential maintenance tasks to ensure the optimal performance and longevity of vehicles, including oil changes, tire rotations, and brake inspections.</div>
@@ -28,7 +28,7 @@
                                     <h4 class="description-heading">Address</h4>
                                     <div class="description-text">HCMC, Viet Nam</div>
                                 </div>
-                                
+
                             </div>
                             <div class="information-container">
                                 <div class="contact-icon fa fa-phone"></div>
@@ -36,7 +36,7 @@
                                     <h4 class="description-heading">Phone</h4>
                                     <div class="description-text">+84123456789</div>
                                 </div>
-                                
+
                             </div>
                             <div class="information-container">
                                 <div class="contact-icon fa fa-envelope"></div>
@@ -44,31 +44,33 @@
                                     <h4 class="description-heading">Email</h4>
                                     <div class="description-text">thaiallb63@gmail.com</div>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="contact-send">
                             <div class="contact-sender">
                                 <h2>Send Message</h2>
-                                <input required name="" placeholder="Full Name" class="name-input input-member" type="text">
-                                <input required name="" placeholder="Email" type="email" class="email-input input-member">
-                                <input required name="" class="input-member" type="text" placeholder="Type your Message">
-                                <input type="submit" class="send-button" value="Send"></input>
-                            </div>    
+                                <form action="<?php $_SERVER["PHP_SELF"] ?>">
+                                    <input required name="name" placeholder="Full Name" class="name-input input-member" type="text" value="<?php echo $_SESSION["username"]; ?>" readonly>
+                                    <input required name="mail" placeholder="Email" type="email" class="email-input input-member" value="<?php echo $_SESSION["usermail"]; ?>" readonly>
+                                    <input required name="message" class="input-member" type="text" placeholder="Type your Message">
+                                    <input type="submit" name="ContactSubmit" class="send-button" value="Send"></input>
+                                </form>
+                            </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
-            </form>
-        </div>
+                </>
+            </div>
 
+            <?php
+            include("./header-footer/product.html");
+            include("./header-footer/footer.html");
+            ?>
+        </div>
         <?php
-        include("./header-footer/product.html");
-        include("./header-footer/footer.html");
-        ?>
-    </div>
-    <?php
         include("serviceModal.php");
-    ?>
+        ?>
 </body>
 <script src="./assets/JS/common.js"></script>
 

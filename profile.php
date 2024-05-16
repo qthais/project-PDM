@@ -19,8 +19,10 @@ $result = $conn->query($sql);
 $doorstepResult = $conn->query($doorstepSql);
 $row = $result->fetch_assoc();
 $username = $row["Name"];
+$_SESSION["username"]=$username;
 $userphone = $row["Phone"];
 $useremail = $row["Mail"];
+$_SESSION["usermail"]=$useremail;
 include("CloseConnect.php")
 ?>
 <!DOCTYPE html>
