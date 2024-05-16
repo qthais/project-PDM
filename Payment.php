@@ -61,7 +61,7 @@ $localDateTime = date('Y-m-d H:i:s');
                         </div>
                         <div class="input-box">
                             <span>Price:</span>
-                            <input type="number" placeholder="HoChiMinhCity" readonly value="<?php echo $totalPrice ?>">
+                            <input type="text" placeholder="HoChiMinhCity" readonly value="<?php echo "$".$totalPrice ?>">
                         </div>
                         <div class="flex">
                             <div class="input-box">
@@ -78,24 +78,24 @@ $localDateTime = date('Y-m-d H:i:s');
                         </div>
                         <div class="input-box">
                             <span>Card Owner:</span>
-                            <input name="cardHolder" type="text" placeholder="BA TU KHAN">
+                            <input required name="cardHolder" type="text" placeholder="BA TU KHAN">
                         </div>
                         <div class="input-box">
                             <span>Card Number:</span>
-                            <input name="cardNumber" type="number" placeholder="1111 2222 3333 4444">
+                            <input required name="cardNumber" type="tel" placeholder="1111 2222 3333 4444">
                         </div>
                         <div class="input-box">
                             <span>Exp Year:</span>
-                            <input name="expYear" type="number" placeholder="2077">
+                            <input required name="expYear" type="number" placeholder="2077">
                         </div>
                         <div class="flex">
                             <div class="input-box">
                                 <span>Exp Month:</span>
-                                <input name="expMonth" type="text" placeholder="October">
+                                <input required name="expMonth" type="text" placeholder="October">
                             </div>
                             <div class="input-box">
                                 <span>CVV:</span>
-                                <input name="cvv" type="number" placeholder="132">
+                                <input required name="cvv" type="number" placeholder="132">
                             </div>
                         </div>
                     </div>
