@@ -4,9 +4,9 @@ if (isset($_COOKIE['totalPrice'])) {
     $totalPrice = $_COOKIE['totalPrice'];
 }
 if (isset($_POST["paymentBtn"])) {
-    echo "<script>localStorage.clear();</script>";
     header("Location: home.php");
 }
+$localDateTime = date('Y-m-d H:i:s');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,12 +49,9 @@ if (isset($_POST["paymentBtn"])) {
                         <div class="flex">
                             <div class="input-box">
                                 <span>Date:</span>
-                                <input type="date" placeholder="HoChiMinhCity">
+                                <input type="datetime-local" placeholder="HoChiMinhCity" value="<?php echo $localDateTime ?>">
                             </div>
-                            <div class="input-box">
-                                <span>Zip code:</span>
-                                <input type="number" placeholder="6969 6969">
-                            </div>
+
                         </div>
                     </div>
                     <div class="column">
@@ -100,5 +97,6 @@ if (isset($_POST["paymentBtn"])) {
     ?>
 </body>
 <script src="./assets/JS/common.js"></script>
+<script src="./assets/JS/Payment.js"></script>
 
 </html>
