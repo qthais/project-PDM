@@ -24,6 +24,7 @@ $localDateTime = date('Y-m-d H:i:s');
         if (isset($_COOKIE['totalPrice'])) {
             $totalPrice = $_COOKIE['totalPrice'];
         }
+        
         if (isset($_POST["paymentBtn"])) {
             $cartID = $_SESSION['cartID'];
             $cardHolder = $_POST["cardHolder"];
