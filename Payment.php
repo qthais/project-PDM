@@ -4,6 +4,10 @@ if (isset($_COOKIE['totalPrice'])) {
     $totalPrice = $_COOKIE['totalPrice'];
 }
 if (isset($_POST["paymentBtn"])) {
+    $cartID=$_SESSION['cartID'];
+    $cardHolder=$_POST[""]
+    $sql="INSERT INTO Payment (CartID, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
+    VALUES (123, '2024-05-16 12:34:56', '1234567890123456', 'John Doe', '2025', '12', '123');";
     header("Location: home.php");
 }
 $localDateTime = date('Y-m-d H:i:s');
@@ -51,7 +55,6 @@ $localDateTime = date('Y-m-d H:i:s');
                                 <span>Date:</span>
                                 <input type="datetime-local" placeholder="HoChiMinhCity" value="<?php echo $localDateTime ?>">
                             </div>
-
                         </div>
                     </div>
                     <div class="column">
@@ -62,24 +65,24 @@ $localDateTime = date('Y-m-d H:i:s');
                         </div>
                         <div class="input-box">
                             <span>Card Owner:</span>
-                            <input type="text" placeholder="Ambatukam">
+                            <input name="cardHolder" type="text" placeholder="Ambatukam">
                         </div>
                         <div class="input-box">
                             <span>Card Number:</span>
-                            <input type="number" placeholder="1111 2222 3333 4444">
+                            <input name="cardNumber" type="number" placeholder="1111 2222 3333 4444">
                         </div>
                         <div class="input-box">
                             <span>Exp Year:</span>
-                            <input type="number" placeholder="2077">
+                            <input name="expYear" type="number" placeholder="2077">
                         </div>
                         <div class="flex">
                             <div class="input-box">
                                 <span>Exp Month:</span>
-                                <input type="text" placeholder="October">
+                                <input name="expMonth" type="text" placeholder="October">
                             </div>
                             <div class="input-box">
                                 <span>CVV:</span>
-                                <input type="number" placeholder="132">
+                                <input name="cvv" type="number" placeholder="132">
                             </div>
                         </div>
                     </div>

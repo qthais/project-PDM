@@ -27,7 +27,7 @@ if (isset($_POST["checkout"])) {
         $sqlIntoCart = "INSERT INTO cart(TotalQuantity,UserID) VALUES($total,$UserID)";
         if ($conn->query($sqlIntoCart) === TRUE) {
             $cartID = $conn->insert_id;
-
+            $_SESSION['cartID'] = $cartID;
             // Insert products into cart_accessories table
             $sqlIntoCartProduct = "INSERT INTO CartautoAccessories (CartID, AutoaccessoryID, Quantity) VALUES ";
             if ($quantityOfWheel > 0) {
