@@ -1,28 +1,5 @@
 <?php
-session_start();
-include("Connect.php");
-$totalPrice = null;
-if (isset($_COOKIE['totalPrice'])) {
-    $totalPrice = $_COOKIE['totalPrice'];
-}
-if (isset($_POST["paymentBtn"])) {
-    $cartID = $_SESSION['cartID'];
-    $cardHolder = $_POST["cardHolder"];
-    $cardNumber = $_POST["cardNumber"];
-    $expYear = $_POST['expYear'];
-    $expMonth = $_POST['expMonth'];
-    $CVV = $_POST['cvv'];
-    $localDateTime = date('Y-m-d H:i:s');
-    $sql = "INSERT INTO Payment (CartID, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("issssss", $cartID, $localDateTime, $cardNumber, $cardHolder, $expYear, $expMonth, $CVV);
-    $stmt->execute(); // Execute the prepared statement
-    $stmt->close(); // Close the statement after execution
-    header("Location: home.php");
-}
-include("CloseConnect.php");
-
+$localDateTime = date('Y-m-d H:i:s');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +17,30 @@ include("CloseConnect.php");
     <div id="main">
         <?php
         include("./header.php");
+        ?>
+        <?php
+        include("Connect.php");
+        $totalPrice = null;
+        if (isset($_COOKIE['totalPrice'])) {
+            $totalPrice = $_COOKIE['totalPrice'];
+        }
+        if (isset($_POST["paymentBtn"])) {
+            $cartID = $_SESSION['cartID'];
+            $cardHolder = $_POST["cardHolder"];
+            $cardNumber = $_POST["cardNumber"];
+            $expYear = $_POST['expYear'];
+            $expMonth = $_POST['expMonth'];
+            $CVV = $_POST['cvv'];
+            $sql = "INSERT INTO Payment (CartID, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("issssss", $cartID, $localDateTime, $cardNumber, $cardHolder, $expYear, $expMonth, $CVV);
+            $stmt->execute(); // Execute the prepared statement
+            $stmt->close(); // Close the statement after execution
+            header("Location: home.php");
+        }
+        include("CloseConnect.php");
+
         ?>
         <div class="payment-container default-margin">
             <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
@@ -65,7 +66,7 @@ include("CloseConnect.php");
                         <div class="flex">
                             <div class="input-box">
                                 <span>Date:</span>
-                                <input type="datetime-local" placeholder="HoChiMinhCity" value="<?php echo $localDateTime ?>">
+                                <input type="datetime-local" readonly value="<?php echo $localDateTime ?>">
                             </div>
                         </div>
                     </div>

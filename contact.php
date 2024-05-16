@@ -15,6 +15,22 @@
         <?php
         include("./header.php");
         ?>
+        <?php
+            include("Connect.php");
+            $UserID = $_SESSION["User_ID"];
+            $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
+            $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
+            $result = $conn->query($sql);
+            $doorstepResult = $conn->query($doorstepSql);
+            $row = $result->fetch_assoc();
+            $username = $row["Name"];
+            $_SESSION["username"] = $username;
+            $userphone = $row["Phone"];
+            $_SESSION["phone"] = $userphone;
+            $useremail = $row["Mail"];
+            $_SESSION["usermail"] = $useremail;
+            include("CloseConnect.php");
+            ?>
         <div id="content" class="default-margin">
             <div class="contact-form text-white" action="">
                 <div id="contact" class="contact-section">
