@@ -1,10 +1,10 @@
 <?php
 session_start();
 include("Connect.php");
-if(isset($_POST)) {
+if (isset($_POST)) {
     $data = file_get_contents("php://input");
     $service = json_decode($data, true);
-    if(isset($service['date'], $service['address'])) {
+    if (isset($service['date'], $service['address'])) {
         $date = $service['date'];
         $address = $service['address'];
         $deleteSql = "DELETE FROM userdoorstepservice WHERE Address='{$address}' AND Date='{$date}'";
@@ -19,10 +19,11 @@ $result = $conn->query($sql);
 $doorstepResult = $conn->query($doorstepSql);
 $row = $result->fetch_assoc();
 $username = $row["Name"];
-$_SESSION["username"]=$username;
+$_SESSION["username"] = $username;
 $userphone = $row["Phone"];
+$_SESSION["phone"] = $userphone;
 $useremail = $row["Mail"];
-$_SESSION["usermail"]=$useremail;
+$_SESSION["usermail"] = $useremail;
 include("CloseConnect.php")
 ?>
 <!DOCTYPE html>
