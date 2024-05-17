@@ -22,11 +22,6 @@ CREATE TABLE AutoAccessories (
     Image VARCHAR(200)
 );
 
-CREATE TABLE Invoice (
-    InvoiceID INT PRIMARY KEY AUTO_INCREMENT,
-    Price DECIMAL(10, 2),
-    CartID INT
-);
 CREATE TABLE Payment (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     CartID INT,

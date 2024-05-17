@@ -42,10 +42,24 @@ $localDateTime = date('Y-m-d H:i:s');
             $stmt->close(); // Close the statement after execution
             header("Location: home.php");
         }
-        include("CloseConnect.php");
 
         ?>
         <div class="payment-container default-margin">
+            <?php
+            $UserID = $_SESSION["User_ID"];
+            $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
+            $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
+            $result = $conn->query($sql);
+            $doorstepResult = $conn->query($doorstepSql);
+            $row = $result->fetch_assoc();
+            $username = $row["Name"];
+            $_SESSION["username"] = $username;
+            $userphone = $row["Phone"];
+            $_SESSION["phone"] = $userphone;
+            $useremail = $row["Mail"];
+            $_SESSION["usermail"] = $useremail;
+            include("CloseConnect.php");
+            ?>
             <form action="<?php $_SERVER["PHP_SELF"] ?>" method="POST">
                 <div class="row">
                     <div class="column">
