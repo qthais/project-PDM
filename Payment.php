@@ -26,7 +26,9 @@ $localDateTime = date('Y-m-d H:i:s');
             $totalPrice = $_COOKIE['totalPrice'];
         }
         if (isset($_POST["paymentBtn"])) {
-            $cartID = $_SESSION['cartID'];
+            $conn->execute_query($_SESSION['cartSql']);
+            $cartID = $conn->insert_id;
+            $conn->execute_query($_SESSION['cartProductSql']);
             $cardHolder = $_POST["cardHolder"];
             $cardNumber = $_POST["cardNumber"];
             $expYear = $_POST['expYear'];

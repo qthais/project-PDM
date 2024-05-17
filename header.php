@@ -25,32 +25,28 @@ if (isset($_POST["checkout"])) {
     $total = $quantityOfWheel + $quantityOfClutches + $quantityOfSteeringWheel;
     if ($total != 0) {
         $sqlIntoCart = "INSERT INTO cart(TotalQuantity,UserID) VALUES($total,$UserID)";
-        if ($conn->query($sqlIntoCart) === TRUE) {
-            $cartID = $conn->insert_id;
-            $_SESSION['cartID'] = $cartID;
-            // Insert products into cart_accessories table
-            $sqlIntoCartProduct = "INSERT INTO CartautoAccessories (CartID, AutoaccessoryID, Quantity) VALUES ";
-            if ($quantityOfWheel > 0) {
-                $sqlIntoCartProduct .= "($cartID, 1, $quantityOfWheel),";
-            }
-            if ($quantityOfSteeringWheel > 0) {
-                $sqlIntoCartProduct .= "($cartID, 2, $quantityOfSteeringWheel),";
-            }
-            if ($quantityOfClutches > 0) {
-                $sqlIntoCartProduct .= "($cartID, 3, $quantityOfClutches),";
-            }
-            // Remove the last comma from the SQL query string
-            $sqlIntoCartProduct = rtrim($sqlIntoCartProduct, ",");
+        $_SESSION['cartSql'] = $sqlIntoCart;
+        $sqlGetNextCartID = "SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'workshop' AND TABLE_NAME = 'Cart'";
+        $result = $conn->query($sqlGetNextCartID);
+        $row = $result->fetch_assoc();
+        $cartID = $row['AUTO_INCREMENT'];
 
-            // Execute the query
-            if ($conn->query($sqlIntoCartProduct) === TRUE) {
-                header("Location: Payment.php");
-            } else {
-                echo "Error: " . $sqlIntoCartProduct . "<br>" . $conn->error;
-            }
-        } else {
-            echo "Error: " . $sqlIntoCart . "<br>" . $conn->error;
+        // Insert products into cart_accessories table
+        $sqlIntoCartProduct = "INSERT INTO CartautoAccessories (CartID, AutoaccessoryID, Quantity) VALUES ";
+        if ($quantityOfWheel > 0) {
+            $sqlIntoCartProduct .= "($cartID, 1, $quantityOfWheel),";
         }
+        if ($quantityOfSteeringWheel > 0) {
+            $sqlIntoCartProduct .= "($cartID, 2, $quantityOfSteeringWheel),";
+        }
+        if ($quantityOfClutches > 0) {
+            $sqlIntoCartProduct .= "($cartID, 3, $quantityOfClutches),";
+        }
+        // Remove the last comma from the SQL query string
+        $sqlIntoCartProduct = rtrim($sqlIntoCartProduct, ",");
+        $_SESSION['cartProductSql'] = $sqlIntoCartProduct;
+        // Execute the query
+        header("Location: Payment.php");
     }
     // Insert total quantity into cart table
 }
