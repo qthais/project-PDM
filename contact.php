@@ -16,21 +16,30 @@
         include("./header.php");
         ?>
         <?php
-            include("Connect.php");
-            $UserID = $_SESSION["User_ID"];
-            $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
-            $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
-            $result = $conn->query($sql);
-            $doorstepResult = $conn->query($doorstepSql);
-            $row = $result->fetch_assoc();
-            $username = $row["Name"];
-            $_SESSION["username"] = $username;
-            $userphone = $row["Phone"];
-            $_SESSION["phone"] = $userphone;
-            $useremail = $row["Mail"];
-            $_SESSION["usermail"] = $useremail;
-            include("CloseConnect.php");
-            ?>
+        $temp = "Send successfully!";
+        include("Connect.php");
+        $UserID = $_SESSION["User_ID"];
+        $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
+        $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
+        $result = $conn->query($sql);
+        $doorstepResult = $conn->query($doorstepSql);
+        $row = $result->fetch_assoc();
+        $username = $row["Name"];
+        $_SESSION["username"] = $username;
+        $userphone = $row["Phone"];
+        $_SESSION["phone"] = $userphone;
+        $useremail = $row["Mail"];
+        $_SESSION["usermail"] = $useremail;
+        if (isset($_POST["ContactSubmit"])) {
+            $message = $_POST['message'];
+            $sqlContact = "INSERT INTO Contact(UserID,Message) VALUES({$UserID},'{$message}')";
+            if ($conn->execute_query($sqlContact)===true) {
+                $statusMessage = 'success';
+                $_SESSION['statusMessage'] = $statusMessage;
+            }
+        }
+        include("CloseConnect.php");
+        ?>
         <div id="content" class="default-margin">
             <div class="contact-form text-white" action="">
                 <div id="contact" class="contact-section">
@@ -66,11 +75,24 @@
                         <div class="contact-send">
                             <div class="contact-sender">
                                 <h2>Send Message</h2>
-                                <form action="<?php $_SERVER["PHP_SELF"] ?>">
+                                <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
                                     <input required name="name" placeholder="Full Name" class="name-input input-member" type="text" value="<?php echo $_SESSION["username"]; ?>" readonly>
                                     <input required name="mail" placeholder="Email" type="email" class="email-input input-member" value="<?php echo $_SESSION["usermail"]; ?>" readonly>
                                     <input required name="message" class="input-member" type="text" placeholder="Type your Message">
                                     <input type="submit" name="ContactSubmit" class="send-button" value="Send"></input>
+                                    <?php
+                                    if (isset($_SESSION["statusMessage"])) {
+                                        $statusMessage=$_SESSION["statusMessage"];
+                                        echo
+                                        "
+                        <div class=\"{$statusMessage}-msg\">
+                            <i class=\"fa fa-check\"></i>
+                            {$temp}
+                        </div>
+                        ";
+                        unset($_SESSION["statusMessage"]);
+                                    }
+                                    ?>
                                 </form>
                             </div>
                         </div>
