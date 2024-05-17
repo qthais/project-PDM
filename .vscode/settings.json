@@ -25,6 +25,19 @@
             "name": "sdfggfds",
             "database": "workshop",
             "username": "qthais"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "php",
+            "database": "workshop",
+            "username": "qthais"
         }
     ],
     "liveServer.settings.port": 5501
