@@ -31,12 +31,26 @@
         include("./header-footer/footer.html");
         ?>
     </div>
-    <?php
-    include("serviceModal.php");
-    ?>
+    <div class="tksModal">
+            <div class="popup">
+                <img class="tickImg" src="./assets/css/img/tick.png" alt="">
+                <h2>Thank You!</h2>
+                <p>Your details has been successfully recorded!</p>
+                <button>OK</button>
+            </div>
+    </div>
+
 </body>
 <script src="./assets/JS/home.js"></script>
 <script src="./assets/JS/common.js"></script>
+<?php
+            if(isset($_SESSION['paymentStatus'])){
+                if($_SESSION['paymentStatus']===true){
+                    echo"<script>addOpenFlex(thankyouModal);</script>";
+                }
+                unset($_SESSION["paymentStatus"]);
+            }
+    ?>
 </html>
 
 

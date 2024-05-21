@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 *{
     padding: 0;
     margin: 0;
@@ -953,7 +955,7 @@ footer .bottom-details .bottom_text{
   }
 }
 /* buy modal */
-.modal{
+.modal, .tksModal{
     position: fixed;
     top:0;
     right: 0;
@@ -1365,7 +1367,6 @@ footer .bottom-details .bottom_text{
     background: #6a5acd;
 }
 
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 
 .info-msg,
 .success-msg,
@@ -1390,4 +1391,41 @@ footer .bottom-details .bottom_text{
 .error-msg {
   color: #D8000C;
   background-color: #FFBABA;
+}
+.tickImg{
+    width: 80px;
+    margin-top: -40px;
+    border-radius: 50%;
+    box-shadow:0 2px 5px rgba(0, 0, 0, 0.2) ;
+}
+
+.popup{
+    width: 400px;
+    background-color: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+}
+
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+.popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding:10px 0;
+    background-color: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
 }

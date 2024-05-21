@@ -1,3 +1,8 @@
+const okBtn=document.querySelector('.popup button');
+const thankyouModal=document.querySelector('.tksModal')
+okBtn.addEventListener('click',()=>{
+    removeOpenFlex(thankyouModal);
+})
 var sliderHref = document.querySelector('#slider')
 var sliderText = [
     { heading: 'So Convenient!', description: 'Convenient doorstep service - We come to you for all your needs.' },

@@ -40,6 +40,7 @@ $localDateTime = date('Y-m-d H:i:s');
             $stmt->bind_param("issssss", $cartID, $localDateTime, $cardNumber, $cardHolder, $expYear, $expMonth, $CVV);
             $stmt->execute(); // Execute the prepared statement
             $stmt->close(); // Close the statement after execution
+            $_SESSION["paymentStatus"]=true;
             header("Location: home.php");
         }
 
@@ -125,9 +126,6 @@ $localDateTime = date('Y-m-d H:i:s');
         include("./header-footer/footer.html");
         ?>
     </div>
-    <?php
-    include("serviceModal.php");
-    ?>
 </body>
 <script src="./assets/JS/common.js"></script>
 <script src="./assets/JS/Payment.js"></script>
