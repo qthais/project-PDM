@@ -104,7 +104,7 @@ $localDateTime = date('Y-m-d H:i:s');
                         </div>
                         <div class="input-box">
                             <span>Exp Year:</span>
-                            <input required name="expYear" type="number" placeholder="2077">
+                            <input required name="expYear" type="text" placeholder="2077">
                         </div>
                         <div class="flex">
                             <div class="input-box">
@@ -113,7 +113,7 @@ $localDateTime = date('Y-m-d H:i:s');
                             </div>
                             <div class="input-box">
                                 <span>CVV:</span>
-                                <input required name="cvv" type="number" placeholder="132">
+                                <input required name="cvv" type="text" placeholder="132">
                             </div>
                         </div>
                     </div>
