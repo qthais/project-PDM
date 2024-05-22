@@ -24,7 +24,6 @@ html{
 }
 
 #header{
-    overflow: hidden;
     height: 52px;
     background-color:  #000;
     position: fixed;
@@ -34,7 +33,7 @@ html{
     display: flex;
 }
 #header #nav{
-    display: inline-block;
+    display: flex;
 }
 
 #header .logo{
@@ -46,9 +45,8 @@ html{
 }
 
 #header #nav li{
-    display: inline-block;
+    display: block;
     position: relative;
-
 }
 
 #nav>li>a{
@@ -63,26 +61,10 @@ html{
     display: block;
 }
 
-#nav .subnav{
-    min-width: 160px;
-    background-color: white;
-    position: absolute;
-    display: none;
-    top: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-#nav .subnav li{
-    width: 100%;
-    color: white;
-}
 
 #nav li:hover>a{
     background: #ccc;
     color: #000;
-}
-
-#nav li:hover .subnav{
-    display: block;
 }
 
 #nav .subnav a{
@@ -291,29 +273,6 @@ html{
     margin-top:52px;
 }
 
-@media screen and (max-width: 1000px) {
-    #header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    #nav {
-        display: none; /* Hide the navigation by default */
-        flex-direction: column;
-    }
-
-    #nav.open {
-        display: flex; /* Show the navigation when open */
-    }
-
-    #nav li {
-        margin: 10px 0; /* Adjust spacing between items */
-    }
-
-    .logo {
-        margin-bottom: 20px; /* Adjust spacing between logo and navigation */
-    }
-}
 
 #slider{
     position: relative;
@@ -346,6 +305,7 @@ html{
 }
 #content .content-section{
     width:800px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 64px 0;
@@ -372,7 +332,6 @@ html{
     font-size: 15px;
     text-align: justify;
     line-height: 1.4;
-
 }
 
 #content .member-list{
@@ -388,6 +347,7 @@ html{
 
 #content .member-item{
     /* có thể để mỗi ảnh width=33.3% */
+    max-width: 33.33%;
     margin: auto;
 }
 #content .member-img{
@@ -1428,4 +1388,33 @@ footer .bottom-details .bottom_text{
     font-size: 18px;
     border-radius: 4px;
     cursor: pointer;
+}
+#header .menu{
+    display: none;
+    color: #fff;
+    padding: 0 24px;
+    line-height: 52px;
+    font-size: 30px;
+    cursor: pointer;
+}
+@media(max-width:1000px){
+    #content .content-section{
+        padding: 64px 16px;
+    }
+    #header #nav{
+        flex-direction: column;
+    }
+    #header #nav li{
+        background-color: black;
+        display: none;
+    }
+    #header .logo{
+        display: none;
+    }
+    #header .menu{
+        display: block;
+    }
+    #nav li a{
+        padding-right: 100px;
+    }
 }

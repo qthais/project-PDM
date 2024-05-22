@@ -1,8 +1,13 @@
-
+const menu=document.querySelector("#header .menu")
+const navItems=document.querySelectorAll('#header #nav li')
 const modal = document.querySelector('.js-modal')
 const modalContainer = document.querySelector('.js-modal-container')
 const modalClose = document.querySelector('.js-modal-close')
-
+menu.addEventListener('click',()=>{
+    navItems.forEach(item => {
+        item.classList.toggle('openBlock');
+    });
+})
 function createCookie(name, value, days) {
     let expires;
 

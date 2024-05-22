@@ -54,8 +54,9 @@ if (isset($_POST["checkout"])) {
 include("CloseConnect.php");
 ?>
 <div id="header">
-    <img src="./assets/css/img/Logo/Logo.jpg" alt="" class="logo">
     <ul id="nav">
+        <img src="./assets/css/img/Logo/Logo.jpg" alt="" class="logo">
+        <div class="ti-menu menu"></div>
         <li><a href="#" onclick="navigateTo('/home.php')">Home</a></li>
         <li><a href="#" onclick="navigateTo('/about.php')">About</a></li>
         <li><a href="#" onclick="navigateTo('/AutoItem.php')">Product</a></li>
