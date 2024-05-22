@@ -899,101 +899,6 @@ footer .bottom-details .bottom_text {
     margin-right: 10px;
 }
 
-@media (max-width: 900px) {
-    footer .content .link-boxes {
-        flex-wrap: wrap;
-    }
-
-    footer .content .link-boxes .input-box {
-        width: 40%;
-        margin-top: 10px;
-    }
-
-    .contact-content {
-        gap: 50px;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 700px) {
-    footer {
-        position: relative;
-    }
-
-    .content .top .logo-details {
-        font-size: 26px;
-    }
-
-    .content .top .media-icons a {
-        height: 35px;
-        width: 35px;
-        font-size: 14px;
-        line-height: 35px;
-    }
-
-    footer .content .link-boxes .box {
-        width: calc(100% / 3 - 10px);
-    }
-
-    footer .content .link-boxes .input-box {
-        width: 60%;
-    }
-
-    .bottom-details .bottom_text span,
-    .bottom-details .bottom_text a {
-        font-size: 12px;
-    }
-    .productList{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .accessories-item{
-        width: 75%;
-        margin-bottom: 20px
-    }
-    .ticket-list{
-        width: 75%;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    #content .member-list {
-        flex-direction: column;
-    }
-    #content .member-img {
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-}
-
-@media (max-width: 520px) {
-    footer::before {
-        top: 145px;
-    }
-
-    footer .content .top {
-        flex-direction: column;
-    }
-
-    .content .top .media-icons {
-        margin-top: 16px;
-    }
-
-    footer .content .link-boxes .box {
-        width: calc(100% / 2 - 10px);
-    }
-
-    footer .content .link-boxes .input-box {
-        width: 100%;
-    }
-
-}
-
 /* buy modal */
 .modal,
 .tksModal {
@@ -1529,4 +1434,124 @@ footer .bottom-details .bottom_text {
     #nav li a {
         padding-right: 100px;
     }
+    .profile .appointment-item{
+        grid-template-columns: 100%;
+    }
+    .appointment span{
+        text-align: center;
+    }
+}
+@media (max-width: 900px) {
+    footer .content .link-boxes {
+        flex-wrap: wrap;
+    }
+
+    footer .content .link-boxes .input-box {
+        width: 40%;
+        margin-top: 10px;
+    }
+
+    .contact-content {
+        gap: 50px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width: 700px) {
+    footer {
+        position: relative;
+    }
+
+    .content .top .logo-details {
+        font-size: 26px;
+    }
+
+    .content .top .media-icons a {
+        height: 35px;
+        width: 35px;
+        font-size: 14px;
+        line-height: 35px;
+    }
+
+    footer .content .link-boxes .box {
+        width: calc(100% / 3 - 10px);
+    }
+
+    footer .content .link-boxes .input-box {
+        width: 60%;
+    }
+
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a {
+        font-size: 12px;
+    }
+    .productList{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .accessories-item{
+        width: 75%;
+        margin-bottom: 20px
+    }
+    .ticket-list{
+        width: 75%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #content .member-list {
+        flex-direction: column;
+    }
+    #content .member-img {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #header .cart_login .cart-list{
+        width: 300px;
+        right: 34px;
+    }
+    .cart-list .cart-item{
+        grid-template-columns: 40px 70px 50px 1fr;
+    }
+    .cart-list-container .checkOutBtn{
+        padding: 10px 30px;
+    }
+    .payment-information{
+        gap: 38px;
+    }
+    #header .ti-shopping-cart-full{
+        margin-right: 40px
+    }
+    .profile-headings{
+        display: none;
+    }
+    .profile input{
+        text-align: center;
+    }
+}
+
+@media (max-width: 520px) {
+    footer::before {
+        top: 145px;
+    }
+
+    footer .content .top {
+        flex-direction: column;
+    }
+
+    .content .top .media-icons {
+        margin-top: 16px;
+    }
+
+    footer .content .link-boxes .box {
+        width: calc(100% / 2 - 10px);
+    }
+
+    footer .content .link-boxes .input-box {
+        width: 100%;
+    }
+
 }

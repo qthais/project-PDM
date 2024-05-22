@@ -1,31 +1,3 @@
-<?php
-session_start();
-include("Connect.php");
-if (isset($_POST)) {
-    $data = file_get_contents("php://input");
-    $service = json_decode($data, true);
-    if (isset($service['date'], $service['address'])) {
-        $date = $service['date'];
-        $address = $service['address'];
-        $deleteSql = "DELETE FROM userdoorstepservice WHERE Address='{$address}' AND Date='{$date}'";
-        $conn->query($deleteSql);
-    }
-}
-
-$UserID = $_SESSION["User_ID"];
-$sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
-$doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
-$result = $conn->query($sql);
-$doorstepResult = $conn->query($doorstepSql);
-$row = $result->fetch_assoc();
-$username = $row["Name"];
-$_SESSION["username"] = $username;
-$userphone = $row["Phone"];
-$_SESSION["phone"] = $userphone;
-$useremail = $row["Mail"];
-$_SESSION["usermail"] = $useremail;
-include("CloseConnect.php")
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +15,34 @@ include("CloseConnect.php")
         <?php
         include("./header.php");
         ?>
-        <div class="profile" class="default-margin">
+        <?php
+        include("Connect.php");
+        if (isset($_POST)) {
+            $data = file_get_contents("php://input");
+            $service = json_decode($data, true);
+            if (isset($service['date'], $service['address'])) {
+                $date = $service['date'];
+                $address = $service['address'];
+                $deleteSql = "DELETE FROM userdoorstepservice WHERE Address='{$address}' AND Date='{$date}'";
+                $conn->query($deleteSql);
+            }
+        }
+
+        $UserID = $_SESSION["User_ID"];
+        $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
+        $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
+        $result = $conn->query($sql);
+        $doorstepResult = $conn->query($doorstepSql);
+        $row = $result->fetch_assoc();
+        $username = $row["Name"];
+        $_SESSION["username"] = $username;
+        $userphone = $row["Phone"];
+        $_SESSION["phone"] = $userphone;
+        $useremail = $row["Mail"];
+        $_SESSION["usermail"] = $useremail;
+        include("CloseConnect.php")
+        ?>
+        <div class="profile default-margin" >
             <div class="card">
                 <div class="left-container">
                     <img src="./assets/css/imagesLogin/avt.png" alt="Profile Image">
@@ -70,15 +69,15 @@ include("CloseConnect.php")
                     <h3 class="gradienttext">Profile Details</h3>
                     <table>
                         <tr>
-                            <td>Name :</td>
+                            <td class="profile-headings">Name :</td>
                             <td><input type="text" value="<?php echo $username ?>"> </td>
                         </tr>
                         <tr>
-                            <td>Mobile :</td>
+                            <td class="profile-headings">Mobile :</td>
                             <td><input type="text" value="<?php echo $userphone ?>"></td>
                         </tr>
                         <tr>
-                            <td>Email :</td>
+                            <td class="profile-headings">Email :</td>
                             <td><input type="text" value="<?php echo $useremail ?>"></td>
                         </tr>
                     </table>
