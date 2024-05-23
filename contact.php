@@ -20,9 +20,7 @@
         include("Connect.php");
         $UserID = $_SESSION["User_ID"];
         $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
-        $doorstepSql = "SELECT * FROM userdoorstepservice WHERE UserID='{$UserID}'";
         $result = $conn->query($sql);
-        $doorstepResult = $conn->query($doorstepSql);
         $row = $result->fetch_assoc();
         $username = $row["Name"];
         $_SESSION["username"] = $username;
