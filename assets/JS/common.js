@@ -75,7 +75,7 @@ addData = () => {
                 <img class="accessories-img" src="${product.image}" alt="">
                 <div class="accessories-body">
                     <h3 class="accessories-heading">${product.name}</h3>
-                    <p class="accessories-desc">Navigate with ease. Grip the future with our steering wheel.</p>
+                    <p class="accessories-desc">${product.description}</p>
                     <div class="buy-container" data-id="${product.id}">
                         <button class="accessories-buy js-buy-tickets">Add to cart</button>
                         <span class="item-price">$${product.price}</span>

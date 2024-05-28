@@ -62,11 +62,12 @@ ADD FOREIGN KEY (UserID) REFERENCES Users(UserID);
 ALTER TABLE Payment
 ADD FOREIGN KEY (CartID) REFERENCES Cart(CartID);
 
-INSERT INTO AutoAccessories (Name, Cost, Image)
+INSERT INTO AutoAccessories (Name, Description, Cost, Image)
 VALUES
-    ('Steering wheel', 99, './assets/css/img/Car_accessories/volang.jpg'),
-    ('Wheel', 99, './assets/css/img/Car_accessories/banhxe.jpg'),
-    ('Clutches', 19, './assets/css/img/Car_accessories/banhrang.jpg');
+    ('Steering wheel','Enhance your driving experience with our premium, ergonomic steering wheels today!', 99, './assets/css/img/Car_accessories/volang.jpg'),
+    ('Wheel',"Experience smooth, efficient travel with our innovative, high-quality wheels today!", 99, './assets/css/img/Car_accessories/banhxe.jpg'),
+    ('Clutches',"Shift to precision with our advanced clutches. Drive your dreams with every turn and shift.", 19, './assets/css/img/Car_accessories/banhrang.jpg');
+    
 INSERT INTO doorstepservice(Name) 
 VALUES
 							('Oil Change'),
