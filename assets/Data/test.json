@@ -2,21 +2,21 @@
     {
         "id": "1",
         "name": "Steering wheel",
-        "price": 299,
+        "price": "99.00",
         "description": "Enhance your driving experience with our premium, ergonomic steering wheels today!",
         "image": ".\/assets\/css\/img\/Car_accessories\/volang.jpg"
     },
     {
         "id": "2",
         "name": "Wheel",
-        "price": 599,
+        "price": "99.00",
         "description": "Experience smooth, efficient travel with our innovative, high-quality wheels today!",
         "image": ".\/assets\/css\/img\/Car_accessories\/banhxe.jpg"
     },
     {
         "id": "3",
         "name": "Clutches",
-        "price": 699,
+        "price": "19.00",
         "description": "Shift to precision with our advanced clutches. Drive your dreams with every turn and shift.",
         "image": ".\/assets\/css\/img\/Car_accessories\/banhrang.jpg"
     }

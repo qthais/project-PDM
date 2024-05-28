@@ -26,6 +26,7 @@ $localDateTime = date('Y-m-d H:i:s');
             $totalPrice = $_COOKIE['totalPrice'];
         }
         if (isset($_POST["paymentBtn"])) {
+            $totalPrice=(int)($totalPrice);
             $conn->execute_query($_SESSION['cartSql']);
             $cartID = $conn->insert_id;
             $conn->execute_query($_SESSION['cartProductSql']);
@@ -34,10 +35,10 @@ $localDateTime = date('Y-m-d H:i:s');
             $expYear = $_POST['expYear'];
             $expMonth = $_POST['expMonth'];
             $CVV = $_POST['cvv'];
-            $sql = "INSERT INTO Payment (CartID, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO Payment (CartID,TotalCost, PaymentDate, CardNumber, CardHolderName, ExpirationYear, ExpirationMonth, CVV) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("issssss", $cartID, $localDateTime, $cardNumber, $cardHolder, $expYear, $expMonth, $CVV);
+            $stmt->bind_param("iissssss", $cartID, $totalPrice, $localDateTime, $cardNumber, $cardHolder, $expYear, $expMonth, $CVV);
             $stmt->execute(); // Execute the prepared statement
             $stmt->close(); // Close the statement after execution
             $_SESSION["paymentStatus"]=true;

@@ -25,6 +25,7 @@ CREATE TABLE AutoAccessories (
 CREATE TABLE Payment (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     CartID INT,
+    ToTalCost INT,
     PaymentDate DATETIME,
     CardNumber VARCHAR(16), -- Store securely
     CardHolderName VARCHAR(100),
@@ -64,9 +65,9 @@ ADD FOREIGN KEY (CartID) REFERENCES Cart(CartID);
 
 INSERT INTO AutoAccessories (Name, Description, Cost, Image)
 VALUES
-    ('Steering wheel','Enhance your driving experience with our premium, ergonomic steering wheels today!', 99, './assets/css/img/Car_accessories/volang.jpg'),
-    ('Wheel',"Experience smooth, efficient travel with our innovative, high-quality wheels today!", 99, './assets/css/img/Car_accessories/banhxe.jpg'),
-    ('Clutches',"Shift to precision with our advanced clutches. Drive your dreams with every turn and shift.", 19, './assets/css/img/Car_accessories/banhrang.jpg');
+    ('Steering wheel','Enhance your driving experience with our premium, ergonomic steering wheels today!', 299, './assets/css/img/Car_accessories/volang.jpg'),
+    ('Wheel',"Experience smooth, efficient travel with our innovative, high-quality wheels today!", 599, './assets/css/img/Car_accessories/banhxe.jpg'),
+    ('Clutches',"Shift to precision with our advanced clutches. Drive your dreams with every turn and shift.", 699, './assets/css/img/Car_accessories/banhrang.jpg');
     
 INSERT INTO doorstepservice(Name) 
 VALUES
