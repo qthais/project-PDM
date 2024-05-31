@@ -97,7 +97,7 @@ $localDateTime = date('Y-m-d H:i:s');
                         </div>
                         <div class="input-box">
                             <span>Card Owner:</span>
-                            <input required name="cardHolder" type="text" placeholder="BA TU KHAN">
+                            <input required name="cardHolder" type="text" placeholder="CARD HOLDER">
                         </div>
                         <div class="input-box">
                             <span>Card Number:</span>
