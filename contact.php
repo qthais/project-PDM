@@ -19,7 +19,7 @@
         $temp = "Send successfully!";
         include("Connect.php");
         $UserID = $_SESSION["User_ID"];
-        $sql = "SELECT * FROM Users WHERE UserID='{$UserID}' ";
+        $sql = "SELECT * FROM Users WHERE UserID={$UserID} ";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         $username = $row["Name"];
@@ -29,11 +29,20 @@
         $useremail = $row["Mail"];
         $_SESSION["usermail"] = $useremail;
         if (isset($_POST["ContactSubmit"])) {
-            $message = $_POST['message'];
-            $sqlContact = "INSERT INTO Contact(UserID,Message) VALUES({$UserID},'{$message}')";
-            if ($conn->execute_query($sqlContact)===true) {
-                $statusMessage = 'success';
+            $message= filter_input(INPUT_POST,'message',FILTER_SANITIZE_STRING);
+            // $message = $_POST['message'];
+            $checkSql = "SELECT * FROM Contact Where UserID={$UserID} AND Message='{$message}'";
+            $checkResult = $conn->query($checkSql);
+            if ($checkResult->num_rows == 0) {
+                $sqlContact = "INSERT INTO Contact(UserID,Message) VALUES({$UserID},'{$message}')";
+                if ($conn->execute_query($sqlContact) === true) {
+                    $statusMessage = 'success';
+                    $_SESSION['statusMessage'] = $statusMessage;
+                }
+            } else {
+                $statusMessage = 'error';
                 $_SESSION['statusMessage'] = $statusMessage;
+                $temp = "You have already send this message!";
             }
         }
         include("CloseConnect.php");
@@ -80,7 +89,7 @@
                                     <input type="submit" name="ContactSubmit" class="send-button" value="Send"></input>
                                     <?php
                                     if (isset($_SESSION["statusMessage"])) {
-                                        $statusMessage=$_SESSION["statusMessage"];
+                                        $statusMessage = $_SESSION["statusMessage"];
                                         echo
                                         "
                         <div class=\"{$statusMessage}-msg\">
@@ -88,7 +97,7 @@
                             {$temp}
                         </div>
                         ";
-                        unset($_SESSION["statusMessage"]);
+                                        unset($_SESSION["statusMessage"]);
                                     }
                                     ?>
                                 </form>

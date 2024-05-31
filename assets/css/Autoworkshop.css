@@ -639,6 +639,10 @@ html {
     background-color: rgb(28, 86, 149);
 }
 
+.date-error{
+    display: none;
+}
+
 .buttons {
     position: absolute;
     top: 50%;

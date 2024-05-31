@@ -52,3 +52,15 @@ function reloadSlider() {
     clearInterval(refreshSlider);
     refreshSlider = setInterval(() => next.click(), 4000)
 }
+const errorMessageDiv = document.querySelector('.date-error');
+document.getElementById('dateForm').addEventListener('submit', function(event) {
+    const inputDateValue = document.getElementById('inputDate').value;
+    const inputDate = new Date(inputDateValue);
+    const currentDate = new Date();
+    console.log(currentDate)
+    console.log(inputDate)
+    if (inputDate <= currentDate) {
+        event.preventDefault();
+        addOpenBlock(errorMessageDiv);
+    }
+});
