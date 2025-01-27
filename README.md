@@ -12,13 +12,95 @@ This project is a web application that allows users to order products related to
 
 ---
 
-## Features
+## ✨ Features Overview
 
-+ 👤User authentication
-+ 🛒Ordering products
-+ 😼Booking outdoor services
-+ 🤳Contact
-+ 💵Payment (fake)
+The project includes the following key features:
+
+---
+
+### 👤 **User Authentication**
+
+The authentication module includes:
+
+- 🔑 **Login Page:**
+  - Users can log in using their email and password.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1fAiAX3B7gKxmQi84aDpXD2Ilb8JkDGIw" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1R7koRuMhGijLAeWj4wXog359UnIKKp9V" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+  - Error handling for incorrect credentials.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1bvwwrHYx5wndAG6-EracV7ZdDeE-1Joa" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+- 📝 **Signup Page:**
+  - Users can create a new account by providing required details.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1PVM-6hE3C9pZNeF5zl0AmN8S3oOOx-MQ" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1y-qZWsvNsDYTomSr-H7wPt_eSb5oTzUd" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+  - Error handling for duplicate email or invalid data.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1IrXoafrO6YylzvtauXR8JHjfdImwkYcE" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1MLUzmJ9nQEedn8gqxf0rnyp-OFlRLNe1" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+---
+
+### 🛒 **Ordering Products**
+
+The ordering system includes:
+
+- 📦 **Product Page:**
+  - Displays three available products with detailed information.
+  - Users can add products to their cart.
+- 🛍️ **Cart:**
+  - A cart page showing the selected products.
+  - Option to update quantities or remove products.
+
+---
+
+### 😼 **Booking Outdoor Services**
+
+The service booking feature allows users to:
+
+- 📅 **Service Selection:**
+  - View and select outdoor services for booking.
+- 🛠️ **Manage Bookings:**
+  - Interactive interface to handle service bookings.
+
+---
+
+### 🤳 **Contact**
+
+The contact module includes:
+
+- 📄 **Contact Page:**
+  - A form where users can send messages or inquiries.
+- ✉️ **Send Contact Message:**
+  - Users can submit their messages through the form.
+- 🛑 **Check for Duplicate Messages:**
+  - Ensures no duplicate messages are sent.
+
+---
+
+### 💵 **Payment (Fake)**
+
+- 🧾 **Simulated Payment System:**
+  - A mock payment page for demonstration purposes.
+  - Allows users to proceed as if completing their orders.
+
+
 
 ---
 
@@ -36,6 +118,74 @@ This project is a web application that allows users to order products related to
 ## ⚙️Setup and Installation
 
 Follow these steps to set up the project locally:
+### **1. Prerequisites**
+
+Before starting, ensure the following are installed on your system:
+
+- [XAMPP](https://www.apachefriends.org/index.html) (for setting up a local server)
+- [Visual Studio Code](https://code.visualstudio.com/) (VS Code) with the **PHP Server** extension installed
+---
+
+### **2. Setting Up XAMPP**
+
+1. **Download and Install XAMPP:**
+   - Visit the [XAMPP website](https://www.apachefriends.org/index.html) and download the version suitable for your OS.
+   - Follow the installation wizard to complete the setup.
+
+2. **Start Apache and MySQL:**
+   - Open the XAMPP Control Panel.
+   - Start the **Apache** and **MySQL** modules by clicking on their respective "Start" buttons.
+
+3. **Verify Installation:**
+   - Open your browser and navigate to `http://localhost/`. You should see the XAMPP dashboard.
+
+---
+
+### **3. Setting Up Your Project**
+
+1. **Copy Project Files to XAMPP Directory:**
+   - Navigate to your XAMPP installation folder (default: `C:\xampp` on Windows).
+   - Open the `htdocs` folder and paste your project folder here.
+
+2. **Configure Database ():**
+   - Open `phpMyAdmin` by visiting `http://localhost/phpmyadmin` in your browser.
+   - Create a database following the script init.sql in directory '/assets/sql/init.sql'.
+
+---
+
+
+### **4. Running the Project in VS Code**
+
+1. **Open the Project in VS Code:**
+   - Launch VS Code and open the project folder located in the `htdocs` directory.
+
+2. **Install PHP Server Extension:**
+   - In VS Code, go to the Extensions Marketplace (`Ctrl+Shift+X`).
+   - Search for and install the **PHP Server** extension.
+
+3. **Run PHP Server:**
+   - Press `Ctrl+Shift+P` and type `PHP Server: Serve Project`.
+   - Select the folder containing your project files.
+   - A local server URL (e.g., `http://127.0.0.1:8000`) will appear in the terminal.
+
+4. **Open in Browser:**
+   - Copy the local server URL and open it in your browser to view the project.
+
+---
+
+### **5. Notes**
+
+- Ensure your project folder has the `index.php` file as the entry point.
+- Replace your username and password if needed in Connect.php
+- If using a `.env` file for configuration, verify the paths and database credentials are correct.
+- Keep XAMPP's Apache server running if using `phpMyAdmin` or MySQL services.
+
+---
+
+
+---
+
+You are now ready to develop and run your PHP project locally! 🎉
 
 1. Clone the repository:
    ```bash
