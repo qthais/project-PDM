@@ -12,6 +12,19 @@ This project is a web application that allows users to order products related to
 
 ---
 
+
+## 🧑‍💻Tech Stack
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,php)](https://skillicons.dev)
+- **HTML**: Structure of web pages
+- **CSS**: Styling and layout
+- **JavaScript**: Client-side interactivity
+- **PHP**: Server-side scripting and backend logic
+- **Database**: My SQL
+- **Database management**: PHP Myadmin
+
+---
+
+
 ## ✨ Features Overview
 
 The project includes the following key features:
@@ -56,18 +69,43 @@ The authentication module includes:
     </div>
 
 ---
-
-### 🛒 **Ordering Products**
+### 🏠 **Home Page**
+🤳
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1R7koRuMhGijLAeWj4wXog359UnIKKp9V" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+---
+### 📜 **About Page**
+🤳
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1G5h6YJPta1pLoG-E7m1vFCD1mYan-Ipb" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    
+---
+### 🛒 **Ordering Page**
 
 The ordering system includes:
 
 - 📦 **Product Page:**
   - Displays three available products with detailed information.
   - Users can add products to their cart.
-- 🛍️ **Cart:**
   - A cart page showing the selected products.
   - Option to update quantities or remove products.
-
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1eMmvQquxGfmO3nuqDkVdE0NA8X9KSavg" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+- 🛍️ **Cart CheckOut:**
+  - A mock payment page for demonstration purposes.
+  - Allows users to proceed as if completing their orders.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1X58aUj2Xf0N33T5dzsTF_8SiS2BfONuZ" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1zJb6cdczL28V3Iy5OsB_w-MD3WMWkVww" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
 ---
 
 ### 😼 **Booking Outdoor Services**
@@ -76,9 +114,24 @@ The service booking feature allows users to:
 
 - 📅 **Service Selection:**
   - View and select outdoor services for booking.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1g_dftlgKcx4oe1qmvfGOEiK0vsfePbCX" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1WEoUAL-_Q5c7LzLfdIBTrDTOAoqCb6KR" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
 - 🛠️ **Manage Bookings:**
   - Interactive interface to handle service bookings.
-
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=198SVxapIdy0WA8DDvsNMFQXqOOZEb5sO" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
+  - Handle invalid calendar input.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1R16QVJUuOXN66s3apLzxRl5iSW1soUHi" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
 ---
 
 ### 🤳 **Contact**
@@ -87,33 +140,24 @@ The contact module includes:
 
 - 📄 **Contact Page:**
   - A form where users can send messages or inquiries.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1iPHwF_DjqRG-chZ8sRLdgqflAv4B9QgQ" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
 - ✉️ **Send Contact Message:**
   - Users can submit their messages through the form.
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1QkkITvP1XZmb_qEvNSXdDEyhZFhRKaeh" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
 - 🛑 **Check for Duplicate Messages:**
   - Ensures no duplicate messages are sent.
-
+    
+    <div style="width: 100%; height: 0; padding-bottom: 56.25%; position: relative;">
+    <img src="https://drive.google.com/uc?export=view&id=1HFdARwxgSB6fieqJZx7ZQk-Kd5IW2gvM" alt="Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+    </div>
 ---
 
-### 💵 **Payment (Fake)**
-
-- 🧾 **Simulated Payment System:**
-  - A mock payment page for demonstration purposes.
-  - Allows users to proceed as if completing their orders.
-
-
-
----
-
-## 🧑‍💻Tech Stack
-[![My Skills](https://skillicons.dev/icons?i=html,css,js,php)](https://skillicons.dev)
-- **HTML**: Structure of web pages
-- **CSS**: Styling and layout
-- **JavaScript**: Client-side interactivity
-- **PHP**: Server-side scripting and backend logic
-- **Database**: My SQL
-- **Database management**: PHP Myadmin
-
----
 
 ## ⚙️Setup and Installation
 
